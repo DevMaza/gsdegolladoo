@@ -35,6 +35,11 @@
                                         <a class="btn btn-info" href="{{ route('contenidos.edit',$contenido->id) }}">Editar</a>
                                         @endcan
 
+                                        @can('ver-contenido')
+                                        <a class="btn btn-success" href="{{ route('contenidos.show',$contenido->id) }}">ver</a>
+                                        @endcan
+
+
                                         @csrf
                                         @method('DELETE')
                                         @can('borrar-contenido')
@@ -42,6 +47,8 @@
                                         @endcan
                                     </form>
                                 </td>
+                                
+
                             </tr>
                             @endforeach
                             </tbody>
