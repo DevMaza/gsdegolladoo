@@ -53,7 +53,42 @@
                                                 </div>
                                             </div>
                                         </div>
-                 
+                                   {{-- editaarrrrr --}} 
+                                        <div class="col-md-4 col-xl-4">
+                                            
+                                            <div class="card bg-c-blue order-card">
+                                                    <div class="card-block">
+                                                    <h5>Grupos</h5>                                              
+                                                    </div>                                            
+                                            </div>                                    
+                                        </div>
+                                        
+                                        <div class="col-md-4 col-xl-4">
+                                            
+                                            <div class="card bg-c-green order-card">
+                                                    <div class="card-block">
+                                                    <h5>Actividades</h5>                                              
+                                                    </div>                                            
+                                            </div>                                    
+                                        </div>
+
+                                        <div class="col-md-4 col-xl-4">
+                                            
+                                            <div class="card bg-c-pink order-card">
+                                                    <div class="card-block">
+                                                    <h5>Calificaciones</h5>                                              
+                                                    </div>                                            
+                                            </div>                                    
+                                        </div>
+
+                                        <div class="col-md-4 col-xl-4">
+                                            
+                                            <div class="card bg-c-blue order-card">
+                                                    <div class="card-block">
+                                                    <h5>Examenes</h5>                                              
+                                                    </div>                                            
+                                            </div>                                    
+                                        </div>
                                 </div>                        
                         </div>
                     </div>

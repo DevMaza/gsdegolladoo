@@ -12,8 +12,24 @@
         <i class=" fas fa-user-lock"></i><span>Roles</span>
     </a>
     @endrole
-    
+
     <a class="nav-link" href="/contenidos">
         <i class=" fas fa-blog"></i><span>Contenidos</span>
     </a>
+    <a class="nav-link" href="#">
+        <i class="fas fa-users"></i><span>Grupos</span>
+    </a>
+
+    <a class="nav-link" href="#">
+        <i class=" fas fa-blog"></i><span>Actividades</span>
+    </a>
+
+    <a class="nav-link" href="#">
+        <i class=" fas fa-blog"></i><span>Calificaciones</span>
+    </a>
+
+    <a class="nav-link" href="#">
+        <i class=" fas fa-blog"></i><span>Examenes</span>
+    </a>
+
 </li>
