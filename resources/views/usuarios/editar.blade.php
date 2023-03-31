@@ -33,6 +33,12 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
+                                    <label for="apellido">Apellido</label>
+                                    {!! Form::text('apellido', null, array('class' => 'form-control')) !!}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
                                     <label for="email">E-mail</label>
                                     {!! Form::text('email', null, array('class' => 'form-control')) !!}
                                 </div>
@@ -47,6 +53,12 @@
                                 <div class="form-group">
                                     <label for="confirm-password">Confirmar Password</label>
                                     {!! Form::password('confirm-password', array('class' => 'form-control')) !!}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="grupo_id">id grupo</label>
+                                    {!! Form::text('grupo_id', null, array('class' => 'form-control')) !!}
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
