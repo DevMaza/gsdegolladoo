@@ -47,6 +47,7 @@ class ContenidoController extends Controller
     {
         request()->validate([
             'titulo' => 'required',
+            'grupo_id' => 'required',
             'contenido' => 'required',
         ]);
     
@@ -88,6 +89,7 @@ class ContenidoController extends Controller
     {
             request()->validate([
                 'titulo' => 'required',
+                'grupo_id' => 'required',
                 'contenido' => 'required',
             ]);
         

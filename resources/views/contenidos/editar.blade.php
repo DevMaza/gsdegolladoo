@@ -35,6 +35,12 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="grupo_id">id grupo</label>
+                                    {!! Form::text('grupo_id', null, array('class' => 'form-control')) !!}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
                                                     
                                 <div class="form-floating">
                                 <label for="contenido">Contenido</label>
