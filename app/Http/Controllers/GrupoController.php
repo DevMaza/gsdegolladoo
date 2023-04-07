@@ -24,7 +24,7 @@ class GrupoController extends Controller
      */
     public function index()
     {
-        $grupos = Role::paginate(5);
+        $grupos = Grupo::paginate(5);
         return view('grupos.index', compact('grupos'));
     }
 
@@ -73,7 +73,7 @@ class GrupoController extends Controller
      */
     public function edit($id)
     {
-        return view('grupos.editar',compact('contenido'));
+        return view('grupos.editar',compact('grupo'));
     }
 
     /**
@@ -90,11 +90,11 @@ class GrupoController extends Controller
             'permission' => 'required',
         ]);
     
-        $role = Role::find($id);
-        $role->name = $request->input('name');
-        $role->save();
+        $grupo = Role::find($id);
+        $grupo->name = $request->input('name');
+        $grupo->save();
     
-        $role->syncPermissions($request->input('permission'));
+        $grupo->syncPermissions($request->input('permission'));
     
         return redirect()->route('roles.index'); 
     }

@@ -11,15 +11,15 @@
     <a class="nav-link" href="/roles">
         <i class=" fas fa-user-lock"></i><span>Roles</span>
     </a>
-    @endrole
+  
 
     <a class="nav-link" href="/contenidos">
         <i class=" fas fa-blog"></i><span>Contenidos</span>
     </a>
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="/grupos">
         <i class="fas fa-users"></i><span>Grupos</span>
     </a>
-
+    @endrole
     <a class="nav-link" href="#">
         <i class=" fas fa-blog"></i><span>Actividades</span>
     </a>

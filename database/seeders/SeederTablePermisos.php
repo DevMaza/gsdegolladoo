@@ -19,6 +19,11 @@ class SeederTablePermisos extends Seeder
     public function run()
     {
         $permisos = [
+          //Operacions sobre tabla contenido
+           'ver-grupo',
+           'crear-grupo',
+           'editar-grupo',
+           'borrar-grupo',
             //Operaciones sobre tabla roles
             'ver-rol',
             'crear-rol',
@@ -29,7 +34,9 @@ class SeederTablePermisos extends Seeder
             'ver-contenido',
             'crear-contenido',
             'editar-contenido',
-            'borrar-contenido'
+            'borrar-contenido',
+
+
         ];
 
         foreach($permisos as $permiso) {

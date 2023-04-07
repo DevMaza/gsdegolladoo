@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar Contenido</h3>
+            <h3 class="page__heading">Editar Grupo</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -24,21 +24,21 @@
                         @endif
 
 
-                    <form action="{{ route('contenidos.update',$contenido->id) }}" method="POST">
+                    <form action="{{ route('grupos.update',$grupo->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                   <label for="titulo">Título</label>
-                                   <input type="text" name="titulo" class="form-control" value="{{ $contenido->titulo }}">
+                                   <label for="grado">Grado</label>
+                                   <input type="text" name="grado" class="form-control" value="{{ $grado->grado }}">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                                     
                                 <div class="form-floating">
-                                <label for="contenido">Contenido</label>
-                                <textarea class="form-control" name="contenido" style="height: 100px">{{ $contenido->contenido }}</textarea>                                
+                                <label for="grado">Grado</label>
+                                <textarea class="form-control" name="contenido" style="height: 100px">{{ $grado->grado }}</textarea>                                
                                 
                                 </div>
                             <br>
