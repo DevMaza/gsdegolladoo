@@ -35,8 +35,7 @@ class GrupoController extends Controller
      */
     public function create()
     {
-        $permission = Permission::get();
-        return view ('grupos.crear', compact('permission'));
+        return view ('grupos.crear');
     }
 
     /**
@@ -47,10 +46,14 @@ class GrupoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,['name' => 'required', 'permission' => 'required']);
-        $grupo = Grupo::create(['name'=>$request->input('name')]);
-        $grupo->syncPermissions($request->input('permission'));
-
+        
+        request()->validate([
+            'grado' => 'required',
+            'periodo' => 'required',
+        ]);
+    
+        Grupo::create($request->all());
+    
         return redirect()->route('grupos.index');
     }
 
@@ -60,9 +63,9 @@ class GrupoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Grupo $grupo)
     {
-        //
+        return view('grupos.ver',compact('grupo'));
     }
 
     /**
@@ -71,7 +74,7 @@ class GrupoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Grupo $grupo)
     {
         return view('grupos.editar',compact('grupo'));
     }
@@ -83,20 +86,16 @@ class GrupoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Grupo $grupo)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'permission' => 'required',
+        request()->validate([
+            'grado' => 'required',
+            'periodo' => 'required',
         ]);
-    
-        $grupo = Role::find($id);
-        $grupo->name = $request->input('name');
-        $grupo->save();
-    
-        $grupo->syncPermissions($request->input('permission'));
-    
-        return redirect()->route('roles.index'); 
+
+        $grupo->update($request->all());
+        
+        return redirect()->route('grupos.index');
     }
 
     /**
@@ -105,9 +104,10 @@ class GrupoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Grupo $grupo)
     {
-        DB::table('roles')->where('id',$id)->delete();
-        return redirect()->route('roles.index');
+        $grupo->delete();
+
+        return redirect()->route('grupos.index');
     }
 }

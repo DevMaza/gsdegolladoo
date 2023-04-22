@@ -23,7 +23,7 @@ class SuperAdminSeeder extends Seeder
             'apellido'=> 'Lopez Medez',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678'),
-            'grupo_id' => '1',
+            'grupo_id' => '2',
             
         ]);
 

@@ -31,14 +31,14 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="grado">Grado</label>
-                                   <input type="text" name="grado" class="form-control" value="{{ $grado->grado }}">
+                                   <input type="text" name="grado" class="form-control" value="{{ $grupo->grado }}">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                                     
                                 <div class="form-floating">
-                                <label for="grado">Grado</label>
-                                <textarea class="form-control" name="contenido" style="height: 100px">{{ $grado->grado }}</textarea>                                
+                                <label for="grado">Periodo</label>
+                                <textarea class="form-control" name="contenido" style="height: 100px">{{ $grupo->periodo }}</textarea>                                
                                 
                                 </div>
                             <br>
