@@ -27,22 +27,20 @@
                     <form action="{{ route('grupos.update',$grupo->id) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                   <label for="grado">Grado</label>
-                                   <input type="text" name="grado" class="form-control" value="{{ $grupo->grado }}">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                    <label for="grado">Grado</label>
+                                    <input type="text" name="grado" class="form-control" value="{{ $grupo->grado }}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                    
-                                <div class="form-floating">
-                                <label for="grado">Periodo</label>
-                                <textarea class="form-control" name="contenido" style="height: 100px">{{ $grupo->periodo }}</textarea>                                
-                                
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                    <label for="periodo">Periodo</label>
+                                    <input type="text" name="periodo" class="form-control" value="{{ $grupo->periodo }}">
+                                    </div>
                                 </div>
-                            <br>
-                            <button type="submit" class="btn btn-primary">Guardar</button>                            
+                            <button type="submit" class="btn btn-primary">Guardar</button>  
                         </div>
                     </form>
 
