@@ -20,7 +20,7 @@
         <i class="fas fa-users"></i><span>Grupos</span>
     </a>
     
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="/actividades">
         <i class=" fas fa-blog"></i><span>Actividades</span>
     </a>
 

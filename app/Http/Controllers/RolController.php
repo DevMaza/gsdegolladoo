@@ -90,7 +90,7 @@ class RolController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-3     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
