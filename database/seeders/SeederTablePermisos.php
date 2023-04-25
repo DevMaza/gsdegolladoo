@@ -19,6 +19,11 @@ class SeederTablePermisos extends Seeder
     public function run()
     {
         $permisos = [
+          //Operacions sobre tabla actividade
+           'ver-actividade',
+           'crear-actividade',
+           'editar-actividade',
+           'borrar-actividade',      
           //Operacions sobre tabla contenido
            'ver-grupo',
            'crear-grupo',
@@ -35,6 +40,8 @@ class SeederTablePermisos extends Seeder
             'crear-contenido',
             'editar-contenido',
             'borrar-contenido',
+
+     
 
 
         ];
