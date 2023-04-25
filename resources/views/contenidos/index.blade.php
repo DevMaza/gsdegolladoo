@@ -29,6 +29,7 @@
                               <tbody>
                             @foreach ($contenidos as $contenido)
                             <tr>
+                                
                                 <td style="display: none;">{{ $contenido->id }}</td>                                
                                 <td>{{ $contenido->titulo }}</td>
                                 <td>{{ $contenido->contenido }}</td>
