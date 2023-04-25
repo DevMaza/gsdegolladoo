@@ -20,8 +20,11 @@
                                 <thead style="background-color:#6777ef">                                     
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Titulo</th>
-                                    <th style="color:#fff;">Contenido</th>                                    
-                                    <th style="color:#fff;">Acciones</th>                                                                   
+                                    <th style="color:#fff;">Contenido</th>                                  
+                                    <th style="color:#fff;">Acciones</th>
+                                    @role('administrador|Docente')
+                                    <th style="color:#fff;">Imagen</th>
+                                    @endrole                                                                       
                               </thead>
                               <tbody>
                             @foreach ($contenidos as $contenido)
@@ -29,6 +32,7 @@
                                 <td style="display: none;">{{ $contenido->id }}</td>                                
                                 <td>{{ $contenido->titulo }}</td>
                                 <td>{{ $contenido->contenido }}</td>
+                                
                                 <td>
                                     <form action="{{ route('contenidos.destroy',$contenido->id) }}" method="POST">                                        
                                         @can('editar-contenido')
@@ -47,8 +51,9 @@
                                         @endcan
                                     </form>
                                 </td>
-                                
-
+                                @role('administrador|Docente')
+                                <td><img height="100px"  src="{{asset('storage'.'/'.$contenido->imagen)}}" alt="{{$contenido->title}}"class="img-fluid" width="100px"></td>	
+                                @endrole
                             </tr>
                             @endforeach
                             </tbody>

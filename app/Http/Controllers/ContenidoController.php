@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contenido;
+use App\Models\Grupo;
+use App\Models\File;
+use Illuminate\Support\Facades\Storage;
+
 class ContenidoController extends Controller
 {
     function __construct()
@@ -33,8 +37,9 @@ class ContenidoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('contenidos.crear');
+    {   
+        $grupo = Grupo::pluck('grado','id');
+        return view('contenidos.crear',compact('grupo'));
     }
 
     /**
@@ -45,15 +50,26 @@ class ContenidoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'titulo' => 'required',
-            'grupo_id' => 'required',
-            'contenido' => 'required',
-        ]);
+       
+
+
+
+        //request()->validate([
+          //  'titulo' => 'required',
+           // 'grupo_id' => 'required',
+           // 'imagen' => 'required|image|max:3048',
+            //'contenido' => 'required',
+           
+        //]);
+        $contenido = request()->except('_token');
+        if($request->hasFile('imagen')){
+            $contenido['imagen']=$request->file('imagen')->store('uploads','public');
+        }
     
-        Contenido::create($request->all());
-    
-        return redirect()->route('contenidos.index');
+        Contenido::insert($contenido);
+       
+
+       return redirect()->route('contenidos.index');
     }
 
     /**
@@ -64,6 +80,9 @@ class ContenidoController extends Controller
      */
     public function show(Contenido $contenido)
     {
+        
+        
+      
         return view('contenidos.ver',compact('contenido'));
     }
 
@@ -90,6 +109,7 @@ class ContenidoController extends Controller
             request()->validate([
                 'titulo' => 'required',
                 'grupo_id' => 'required',
+                'imagen' => 'required',
                 'contenido' => 'required',
             ]);
         

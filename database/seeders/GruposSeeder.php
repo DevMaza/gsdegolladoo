@@ -15,7 +15,7 @@ class GruposSeeder extends Seeder
     public function run()
     {
         $grupo=Grupo::create([
-            'grado'=> 'a',
+            'grado'=> '2A',
             'periodo'=> 'sin periodo',            
         ]);
     }

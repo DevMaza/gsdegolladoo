@@ -58,7 +58,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="grupo_id">Id Grupo</label>
-                                    {!! Form::text('grupo_id', null, array('class' => 'form-control')) !!}
+                                    {!! Form::select('grupo_id',$grupo, null, array('class' => 'form-control')) !!}
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">

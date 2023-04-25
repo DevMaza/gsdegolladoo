@@ -16,7 +16,7 @@
     <a class="nav-link" href="/contenidos">
         <i class=" fas fa-blog"></i><span>Contenidos</span>
     </a>
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="/grupos">
         <i class="fas fa-users"></i><span>Grupos</span>
     </a>
 
