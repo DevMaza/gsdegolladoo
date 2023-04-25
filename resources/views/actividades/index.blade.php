@@ -26,29 +26,33 @@
                               <tbody>
                             @foreach ($actividades as $actividade)
                             <tr>
-                                <td style="display: none;">{{ $actividade->id }}</td>                                
-                                <td>{{ $actividade->titulo }}</td>
-                                <td>{{ $actividade->descripcion }}</td>
-                                <td>
-                                    <form action="{{ route('actividades.destroy',$actividade->id) }}" method="POST">                                        
-                                        @can('editar-actividade')
-                                        <a class="btn btn-info" href="{{ route('actividades.edit',$actividade->id) }}">Editar</a>
-                                        @endcan
+                                    @foreach ($users as $user)
+                                        @if($user->name == \Illuminate\Support\Facades\Auth::user()->name)
+                                                @if($actividade->grupo_id  == $user->grupo_id)           
+                                                    <td style="display: none;">{{ $actividade->id }}</td>                                
+                                                    <td>{{ $actividade->titulo }}</td>
+                                                    <td>{{ $actividade->descripcion }}</td>
+                                                    <td>
+                                                        <form action="{{ route('actividades.destroy',$actividade->id) }}" method="POST">                                        
+                                                            @can('editar-actividade')
+                                                            <a class="btn btn-info" href="{{ route('actividades.edit',$actividade->id) }}">Editar</a>
+                                                            @endcan
 
-                                        @can('ver-actividade')
-                                        <a class="btn btn-success" href="{{ route('actividades.show',$actividade->id) }}">ver</a>
-                                        @endcan
+                                                            @can('ver-actividade')
+                                                            <a class="btn btn-success" href="{{ route('actividades.show',$actividade->id) }}">ver</a>
+                                                            @endcan
 
 
-                                        @csrf
-                                        @method('DELETE')
-                                        @can('borrar-actividade')
-                                        <button type="submit" class="btn btn-danger">Borrar</button>
-                                        @endcan
-                                    </form>
-                                </td>
-                                
-
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            @can('borrar-actividade')
+                                                            <button type="submit" class="btn btn-danger">Borrar</button>
+                                                            @endcan
+                                                        </form>
+                                                    </td>
+                                                 @endif
+                                        @endif
+                                     @endforeach
                             </tr>
                             @endforeach
                             </tbody>

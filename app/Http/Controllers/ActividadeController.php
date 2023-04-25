@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Actividade;
+use App\Models\User;
 class ActividadeController extends Controller
 {
     function __construct()
@@ -22,7 +23,8 @@ class ActividadeController extends Controller
     {
         //Con paginación
          $actividades = Actividade::paginate(5);
-        return view('actividades.index',compact('actividades'));
+         $users = User::paginate(5);
+         return view('actividades.index',compact('actividades'),compact('users'));
          //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
 
