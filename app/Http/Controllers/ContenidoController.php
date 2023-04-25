@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contenido;
+use App\Models\User;
 class ContenidoController extends Controller
 {
     function __construct()
@@ -23,7 +24,8 @@ class ContenidoController extends Controller
           
          //Con paginación
          $contenidos = Contenido::paginate(5);
-         return view('contenidos.index',compact('contenidos'));
+         $users = User::paginate(5);
+         return view('contenidos.index',compact('contenidos'),compact('users'));
          //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
 
