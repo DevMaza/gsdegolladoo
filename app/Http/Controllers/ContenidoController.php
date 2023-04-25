@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contenido;
 use App\Models\Grupo;
-use App\Models\File;
+
 use Illuminate\Support\Facades\Storage;
 
 class ContenidoController extends Controller
