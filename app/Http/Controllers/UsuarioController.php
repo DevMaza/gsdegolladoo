@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Grupo;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -38,9 +39,11 @@ class UsuarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        
         $roles = Role::pluck('name', 'name')->all();
-        return view('usuarios.crear',compact('roles'));
+        $grupo = Grupo::pluck('grado','id');
+        return view('usuarios.crear',compact('roles','grupo'));
     }
 
     /**

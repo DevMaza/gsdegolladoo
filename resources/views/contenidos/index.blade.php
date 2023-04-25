@@ -20,44 +20,41 @@
                                 <thead style="background-color:#6777ef">                                     
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Titulo</th>
-                                    <th style="color:#fff;">Contenido</th>                                    
-                                    <th style="color:#fff;">Acciones</th> 
-                                    <th style="color:#fff;">grupo id</th>                                                                    
+                                    <th style="color:#fff;">Contenido</th>                                  
+                                    <th style="color:#fff;">Acciones</th>
+                                    @role('administrador|Docente')
+                                    <th style="color:#fff;">Imagen</th>
+                                    @endrole                                                                       
                               </thead>
                               <tbody>
                             @foreach ($contenidos as $contenido)
                             <tr>
-                                @foreach ($users as $user)
-                                    @if($user->name == \Illuminate\Support\Facades\Auth::user()->name)
-                                            @if($contenido->grupo_id  == $user->grupo_id)
-                                                <td style="display: none;">{{ $contenido->id }}</td>                                
-                                                <td>{{ $contenido->titulo }}</td>
-                                                <td>{{ $contenido->contenido }}</td>
-                                                <td>
-                                                    <form action="{{ route('contenidos.destroy',$contenido->id) }}" method="POST">                                        
-                                                        @can('editar-contenido')
-                                                        <a class="btn btn-info" href="{{ route('contenidos.edit',$contenido->id) }}">Editar</a>
-                                                        @endcan
+                                
+                                <td style="display: none;">{{ $contenido->id }}</td>                                
+                                <td>{{ $contenido->titulo }}</td>
+                                <td>{{ $contenido->contenido }}</td>
+                                
+                                <td>
+                                    <form action="{{ route('contenidos.destroy',$contenido->id) }}" method="POST">                                        
+                                        @can('editar-contenido')
+                                        <a class="btn btn-info" href="{{ route('contenidos.edit',$contenido->id) }}">Editar</a>
+                                        @endcan
 
                                                         @can('ver-contenido')
                                                         <a class="btn btn-success" href="{{ route('contenidos.show',$contenido->id) }}">ver</a>
                                                         @endcan
 
 
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        @can('borrar-contenido')
-                                                        <button type="submit" class="btn btn-danger">Borrar</button>
-                                                        @endcan
-                                                    </form>
-                                                </td>
-                                                <td>{{ $contenido->grupo_id }}</td>
-                                                                                
-                                            @endif
-                                        @endif
-                                @endforeach
-                                
-
+                                        @csrf
+                                        @method('DELETE')
+                                        @can('borrar-contenido')
+                                        <button type="submit" class="btn btn-danger">Borrar</button>
+                                        @endcan
+                                    </form>
+                                </td>
+                                @role('administrador|Docente')
+                                <td><img height="100px"  src="{{asset('storage'.'/'.$contenido->imagen)}}" alt="{{$contenido->title}}"class="img-fluid" width="100px"></td>	
+                                @endrole
                             </tr>
                             @endforeach
                             </tbody>

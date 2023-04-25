@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('contenido');
+            $table->string('imagen');
             $table->unsignedBigInteger('grupo_id');
             $table->foreign('grupo_id')->references('id')->on('grupos')->onDelete('cascade');
             $table->timestamps();

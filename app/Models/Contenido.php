@@ -10,5 +10,5 @@ class Contenido extends Model
 {
     use HasFactory;
     
-    protected $fillable=['titulo','contenido','grupo_id'];
+    protected $fillable=['titulo','contenido','grupo_id','imagen'];
 }

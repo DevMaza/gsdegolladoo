@@ -25,6 +25,17 @@
                                                     
                                 <div class="form-floating"> 
                                 
+                                <p><img  src="{{asset('storage'.'/'.$contenido->imagen)}}" alt="{{$contenido->title}}"class="img-fluid img-thumbrail" width="150px"></p>    
+                                
+                                
+                                </div>
+                            <br>
+                   
+                        </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    
+                                <div class="form-floating"> 
+                                
                                 <p>{{ $contenido->contenido }}</p>    
                                 
                                 
