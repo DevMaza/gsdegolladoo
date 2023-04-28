@@ -33,35 +33,30 @@
 
                             </div>
                             <div>
-                                <form action="{{ route('entregadeactividades.store') }}" method="POST">
+                                <form action="{{ route('actividades.store') }}" method="POST">
                                     @csrf
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <label for="archivo">archivo</label>
-                                                <input type="text" name="archivo" class="form-control">
+                                                <label for="titulo">Título</label>
+                                                <input type="text" name="titulo" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <label for="calificacion">calificacion</label>
-                                                <input type="text" name="calificacion" class="form-control">
+                                                <label for="grupo_id">Id Grupo</label>
+                                                {!! Form::text('grupo_id', null, array('class' => 'form-control')) !!}
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <label for="user_id">Id user</label>
-                                                {!! Form::text('user_id', null, array('class' => 'form-control')) !!}
+        
+                                            <div class="form-floating">
+                                                <textarea class="form-control" name="descripcion"
+                                                    style="height: 100px"></textarea>
+                                                <label for="descripcion">Descripcion</label>
                                             </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <label for="actividade_id">Id actividad</label>
-                                                {!! Form::text('actividade_id', null, array('class' => 'form-control')) !!}
-                                            </div>
-                                        </div>                                        
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <button type="submit" class="btn btn-primary">Entregar</button>
+        
+                                            <button type="submit" class="btn btn-primary">Guardar</button>
                                         </div>
                                 </form>
                             </div>

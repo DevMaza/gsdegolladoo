@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Entregadeactividades;
 use Illuminate\Http\Request;
-use App\Models\Actividade;
-use App\Models\User;
 
-class ActividadeController extends Controller
+class EntregadeactividadeController extends Controller
 {
     function __construct()
     {
@@ -22,11 +20,7 @@ class ActividadeController extends Controller
      */
     public function index()
     {
-        //Con paginación
-         $actividades = Actividade::paginate(5);
-         $users = User::paginate(5);
-         return view('actividades.index',compact('actividades'),compact('users'));
-         //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
+        //
     }
 
     /**
@@ -36,7 +30,7 @@ class ActividadeController extends Controller
      */
     public function create()
     {
-        return view('actividades.crear');
+        //
     }
 
     /**
@@ -48,12 +42,13 @@ class ActividadeController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'titulo' => 'required',
-            'grupo_id' => 'required',
-            'descripcion' => 'required',
+            'archivo' => 'required',
+            'calificacion' => 'required',
+            'user_id' => 'required',
+            'actividade_id' => 'required',
         ]);
     
-        Actividade::create($request->all());
+        Entregadeactividades::create($request->all());
     
         return redirect()->route('actividades.index');
     }
@@ -64,9 +59,9 @@ class ActividadeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Actividade $actividade)
+    public function show($id)
     {
-        return view('actividades.ver',compact('actividade'));
+        //
     }
 
     /**
@@ -75,9 +70,9 @@ class ActividadeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Actividade $actividade)
+    public function edit($id)
     {
-        return view('actividades.editar',compact('actividade'));
+        //
     }
 
     /**
@@ -87,17 +82,9 @@ class ActividadeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Actividade $actividade)
+    public function update(Request $request, $id)
     {
-        request()->validate([
-            'titulo' => 'required',
-            'grupo_id' => 'required',
-            'descripcion' => 'required',
-        ]);
-    
-        $actividade->update($request->all());
-    
-        return redirect()->route('actividades.index');
+        //
     }
 
     /**
@@ -106,10 +93,8 @@ class ActividadeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Actividade $actividade)
+    public function destroy($id)
     {
-        $actividade->delete();
-    
-        return redirect()->route('actividades.index');
+        //
     }
 }
