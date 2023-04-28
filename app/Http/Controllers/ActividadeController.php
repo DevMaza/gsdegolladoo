@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Actividade;
+use App\Models\Grupo;
 use App\Models\User;
 
 class ActividadeController extends Controller
@@ -36,7 +37,9 @@ class ActividadeController extends Controller
      */
     public function create()
     {
-        return view('actividades.crear');
+        $grupos = Grupo::pluck('id','grado');
+        $users = User::paginate(5);
+        return view('actividades.crear',compact('grupos'),compact('users'));
     }
 
     /**
@@ -77,7 +80,9 @@ class ActividadeController extends Controller
      */
     public function edit(Actividade $actividade)
     {
-        return view('actividades.editar',compact('actividade'));
+        $grupos = Grupo::pluck('id','grado');
+        $users = User::paginate(5);
+        return view('actividades.editar',compact('actividade'),compact('grupos'),compact('users'));
     }
 
     /**

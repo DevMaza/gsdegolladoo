@@ -6,13 +6,7 @@ use Illuminate\Http\Request;
 
 class EntregadeactividadeController extends Controller
 {
-    function __construct()
-    {
-         $this->middleware('permission:ver-actividade|crear-actividade|editar-actividade|borrar-actividade')->only('index');
-         $this->middleware('permission:crear-actividade', ['only' => ['create','store']]);
-         $this->middleware('permission:editar-actividade', ['only' => ['edit','update']]);
-         $this->middleware('permission:borrar-actividade', ['only' => ['destroy']]);
-    }
+
     /**
      * Display a listing of the resource.
      *

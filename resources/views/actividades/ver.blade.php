@@ -51,7 +51,7 @@
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="user_id">Id user</label>
-                                                {!! Form::text('user_id', null, array('class' => 'form-control')) !!}
+                                                {!! Form::text('user_id', \Illuminate\Support\Facades\Auth::user()->id, array('class' => 'form-control')) !!}
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12">

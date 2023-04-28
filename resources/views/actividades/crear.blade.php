@@ -32,12 +32,17 @@
                                         <input type="text" name="titulo" class="form-control">
                                     </div>
                                 </div>
+                                @foreach ($grupos as $grupo)
+                                @if($grupo == \Illuminate\Support\Facades\Auth::user()->grupo_id)
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="grupo_id">Id Grupo</label>
-                                        {!! Form::text('grupo_id', null, array('class' => 'form-control')) !!}
+                                        <label for="grupo_id">Id grupo</label>
+                                        <input type="text" name="grupo_id" class="form-control" value={{$grupo}}
+                                            disabled>
                                     </div>
                                 </div>
+                                @endif
+                                @endforeach
                                 <div class="col-xs-12 col-sm-12 col-md-12">
 
                                     <div class="form-floating">

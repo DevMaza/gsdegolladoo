@@ -41,8 +41,10 @@ class ContenidoController extends Controller
      */
     public function create()
     {   
-        $grupo = Grupo::pluck('grado','id');
-        return view('contenidos.crear',compact('grupo'));
+        //$grupo= Grupo::paginate(5);
+        $grupos = Grupo::pluck('id','grado');
+        $users = User::paginate(5);
+        return view('contenidos.crear',compact('grupos'),compact('users'));
     }
 
     /**
@@ -97,7 +99,10 @@ class ContenidoController extends Controller
      */
     public function edit(Contenido $contenido)
     {
-        return view('contenidos.editar',compact('contenido'));
+        $grupos = Grupo::pluck('id','grado');
+        $users = User::paginate(5);
+
+        return view('contenidos.editar',compact('contenido'),compact('grupos'),compact('users'));
     }
 
     /**
