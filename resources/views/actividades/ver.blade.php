@@ -32,7 +32,9 @@
                                 <br>
 
                             </div>
+                            
                             <div>
+                                <hr>
                                 <form action="{{ route('entregadeactividades.store') }}" method="POST">
                                     @csrf
                                     <div class="row">
@@ -51,15 +53,16 @@
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="user_id">Id user</label>
-                                                {!! Form::text('user_id', \Illuminate\Support\Facades\Auth::user()->id, array('class' => 'form-control')) !!}
+                                                <input type="text" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" class="form-control" disabled>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="actividade_id">Id actividad</label>
-                                                {!! Form::text('actividade_id', null, array('class' => 'form-control')) !!}
+                                                <input type="text" name="actividade_id" value="{{$actividade->id}}" class="form-control" disabled>
                                             </div>
-                                        </div>                                        
+                                        </div>
+                                        
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <button type="submit" class="btn btn-primary">Entregar</button>
                                         </div>

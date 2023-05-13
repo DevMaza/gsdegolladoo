@@ -27,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         Paginator::useBootstrap();
+        
+        if (env('APP_ENV') === 'production') {
+            $this->app['request']->server->set('HTTPS', true);
+        }
     }
 }
