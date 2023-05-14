@@ -38,7 +38,7 @@
                                     <div class="form-group">
                                         <label for="grupo_id">Id grupo</label>
                                         <input type="text" name="grupo_id" class="form-control" value={{$grupo}}
-                                            disabled>
+                                            >
                                     </div>
                                 </div>
                                 @endif

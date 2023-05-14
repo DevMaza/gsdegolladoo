@@ -26,7 +26,7 @@
         <i class=" fas fa-blog"></i><span>Actividades</span>
     </a>
 
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="/entregadeactividades">
         <i class=" fas fa-blog"></i><span>Calificaciones</span>
     </a>
 

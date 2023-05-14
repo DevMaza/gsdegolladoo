@@ -47,19 +47,19 @@
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="calificacion">calificacion</label>
-                                                <input type="text" name="calificacion" class="form-control">
+                                                <input type="text" name="calificacion" class="form-control" value="0">
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="user_id">Id user</label>
-                                                <input type="text" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" class="form-control" disabled>
+                                                <input type="text" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" class="form-control" >
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="actividade_id">Id actividad</label>
-                                                <input type="text" name="actividade_id" value="{{$actividade->id}}" class="form-control" disabled>
+                                                <input type="text" name="actividade_id" value="{{$actividade->id}}" class="form-control" >
                                             </div>
                                         </div>
                                         

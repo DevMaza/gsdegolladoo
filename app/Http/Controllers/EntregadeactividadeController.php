@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Entregadeactividades;
 use Illuminate\Http\Request;
+use App\Models\Actividade;
+use App\Models\Grupo;
+use App\Models\User;
 
 class EntregadeactividadeController extends Controller
 {
@@ -14,7 +17,11 @@ class EntregadeactividadeController extends Controller
      */
     public function index()
     {
-        //
+        //Con paginación
+        $entregadeactividades = Entregadeactividades::paginate(5);
+        $users = User::paginate(5);
+        return view('entregadeactividades.index',compact('entregadeactividades'),compact('users'));
+        //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
 
     /**
