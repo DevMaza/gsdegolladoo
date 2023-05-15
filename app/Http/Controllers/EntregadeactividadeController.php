@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Actividade;
 use App\Models\Grupo;
 use App\Models\User;
+use Hamcrest\Core\HasToString;
 
 class EntregadeactividadeController extends Controller
 {
@@ -15,12 +16,14 @@ class EntregadeactividadeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $idact=$_REQUEST;
         //Con paginación
         $entregadeactividades = Entregadeactividades::paginate(5);
         $users = User::paginate(5);
-        return view('entregadeactividades.index',compact('entregadeactividades'),compact('users'));
+        return view('entregadeactividades.index',compact('entregadeactividades'),compact('users'))->with('idact',$idact);
+  
         //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
 

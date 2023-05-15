@@ -23,7 +23,8 @@ class SeederTablePermisos extends Seeder
            'ver-actividade',
            'crear-actividade',
            'editar-actividade',
-           'borrar-actividade',      
+           'borrar-actividade',
+           'calificar-actividade',    
           //Operacions sobre tabla contenido
            'ver-grupo',
            'crear-grupo',

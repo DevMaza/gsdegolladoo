@@ -28,22 +28,19 @@
                             @foreach ($entregadeactividades as $entregadeactividade)
                             <tr>
                                     @foreach ($users as $user)
-                                        @foreach($idact as $d)
-                                            @if($user->name == \Illuminate\Support\Facades\Auth::user()->name) 
-                                                @if($entregadeactividade->actividade_id == $d)
+                                        @if($user->name == \Illuminate\Support\Facades\Auth::user()->name)
+                                                
                                                     <td style="display: none;">{{ $entregadeactividade->id }}</td>                                
                                                     <td>{{ $entregadeactividade->archivo }}</td>
                                                     <td>{{ $entregadeactividade->calificacion }}</td>
                                                     <td>{{ $entregadeactividade->user_id }}</td>
-                                                @endif                                                    
-                                            @endif   
-                                        @endforeach
+                                        @endif
                                      @endforeach
                             </tr>
                             @endforeach
                             </tbody>
                         </table>
-                        
+
                         <!-- Ubicamos la paginacion a la derecha -->
                         <div class="pagination justify-content-end">
                             {!! $entregadeactividades->links() !!}

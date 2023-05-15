@@ -42,6 +42,9 @@
                                                             <a class="btn btn-success" href="{{ route('actividades.show',$actividade->id) }}">ver</a>
                                                             @endcan
 
+                                                            @can('calificar-actividade')
+                                                            <a class="btn btn-success" href="{{ route('entregadeactividades.index',$actividade->id) }}">calificar</a>
+                                                            @endcan
 
                                                             @csrf
                                                             @method('DELETE')
