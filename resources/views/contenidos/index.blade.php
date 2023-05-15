@@ -55,7 +55,9 @@
                                                     </form>
                                                 </td>
                                                 @role('administrador|Docente')
-                                                <td><img height="100px"  src="{{asset('storage'.'/'.$contenido->imagen)}}" alt="{{$contenido->title}}"class="img-fluid" width="100px"></td>	
+                                                    <td>
+                                                    <p></p>    <img height="100px"  src="{{asset('storage/uploads/'.$contenido->imagen)}}" alt="{{$contenido->title}}"class="img-fluid" width="100px">
+                                                    </td> 
                                                 @endrole
                                         @endif
                                     @endif

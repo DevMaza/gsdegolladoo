@@ -28,8 +28,8 @@ class ContenidoController extends Controller
     {
           
          //Con paginación
-         $contenidos = Contenido::paginate(5);
-         $users = User::paginate(5);
+         $contenidos = Contenido::paginate(10);
+         $users = User::paginate(10);
          return view('contenidos.index',compact('contenidos'),compact('users'));
          //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
@@ -64,14 +64,16 @@ class ContenidoController extends Controller
             //'contenido' => 'required',
            
         //]);
+        //2$contenido = $request->all();
         $contenido = request()->except('_token');
         if($request->hasFile('imagen')){
-            $contenido['imagen']=$request->file('imagen')->store('uploads','public');
+            $contenido['imagen']= time() . '_' . $request->file('imagen')->getClientOriginalName();
+            $request->file('imagen')->storeAs('uploads', $contenido['imagen'],'public');
         }
     
         Contenido::insert($contenido);
        
-
+        //2Contenido::create($contenido);
        return redirect()->route('contenidos.index');
     }
 

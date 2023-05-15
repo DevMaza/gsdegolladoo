@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Crear actividades</h3>
+            <h3 class="page__heading">Actividades</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -23,7 +23,7 @@
                             </div>
                         @endif
 
-                    <form action="{{ route('actividades.store') }}" method="POST">
+                    <form action="{{ route('actividades.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -36,7 +36,13 @@
                                 <div class="form-group">
                                     <label for="grupo_id">Id Grupo</label>
                                     {!! Form::text('grupo_id', null, array('class' => 'form-control')) !!}
-                                </div>
+                                    </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <label for="archivo">Subir Archivo</label>
+                                        <input type="file" name="archivo" class="form-control" id="archivo">
+                                    </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                                     

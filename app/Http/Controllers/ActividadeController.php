@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Actividade;
+
 use App\Models\User;
+
+use Illuminate\Support\Facades\Storage;
+
 class ActividadeController extends Controller
 {
     function __construct()
@@ -46,14 +50,25 @@ class ActividadeController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'titulo' => 'required',
-            'grupo_id' => 'required',
-            'descripcion' => 'required',
-        ]);
+        //request()->validate([
+          //  'titulo' => 'required',
+            //'grupo_id' => 'required',
+            //'descripcion' => 'required',
+        //]);
     
-        Actividade::create($request->all());
+        //Actividade::create($request->all());
+        $actividades = request()->except('_token');
+        if($request->hasFile('archivo')){
+            $actividades['archivo']= time() . '_' . $request->file('archivo')->getClientOriginalName();
+            $request->file('archivo')->storeAs('archivos', $actividades['archivo'],'public');
+        }
     
+        Actividade::insert($actividades);
+       
+        //Actividade::create($actividades);
+        
+        
+        
         return redirect()->route('actividades.index');
     }
 
@@ -65,6 +80,8 @@ class ActividadeController extends Controller
      */
     public function show(Actividade $actividade)
     {
+        
+        
         return view('actividades.ver',compact('actividade'));
     }
 

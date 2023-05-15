@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
     {
         
         $this->call(GruposSeeder::class);
+        $this->call(SuperAdminSeeder::class);
+        $this->call(SeederTablePermisos::class);
         // \App\Models\User::factory(10)->create();
     }
 }

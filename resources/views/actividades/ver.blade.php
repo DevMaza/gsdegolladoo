@@ -10,7 +10,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">                            
-
+                        
                         @csrf
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -30,9 +30,33 @@
                                 
                                 </div>
                             <br>
-                   
-                        </div>
-
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    
+                                                    <div class="form-floating"> 
+                                                    
+                                                   <p></p>    <img height="100px"  src="{{asset('storage/archivos/'.$actividade->archivo)}}" alt="{{$actividade->title}}"class="img-fluid" width="100px">
+                                                    
+                                                    
+                                                    </div>
+                                                <br>
+                                       
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="archivo">Subir Archivo</label>
+                                                    <input type="file" name="archivo" class="form-control" id="archivo">
+                                                </div>
+                                            </div>
+                                            
+                                                 
+                             
+                                                <br>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                        </div>
+                                </div>
+                            </div>
+                        
 
                         </div>
                     </div>
