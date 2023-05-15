@@ -18,8 +18,13 @@ class EntregadeactividadeController extends Controller
      */
     public function index(Request $request)
     {
-        $idact=$_REQUEST;
+        $name = $request->all();
+        $idacta= array_keys($name);
+        $idact=0;
         //Con paginación
+        foreach ($idacta as $numero) {
+            $idact += $numero;
+        }
         $entregadeactividades = Entregadeactividades::paginate(5);
         $users = User::paginate(5);
         return view('entregadeactividades.index',compact('entregadeactividades'),compact('users'))->with('idact',$idact);
