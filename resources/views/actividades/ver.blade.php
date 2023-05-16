@@ -12,13 +12,24 @@
                     <div class="card-body">
 
                         @csrf
+                        
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <h5><label for="titulo">Título</label></h5>
                                     <br>
                                     <h6><label for="titulo">{{ $actividade->titulo }}</label></h6>
-
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    
+                                    <div class="form-floating"> 
+                                                    
+                                        <p></p>    <img height="100px"  src="{{asset('storage/archivos/'.$actividade->archivo)}}" alt="{{$actividade->title}}"class="img-fluid" width="100px">
+                                                    
+                                            </div>
+                                         <br>
+                                       
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -35,13 +46,13 @@
                             
                             <div>
                                 <hr>
-                                <form action="{{ route('entregadeactividades.store') }}" method="POST">
+                                <form action="{{ route('entregadeactividades.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <label for="archivo">archivo</label>
-                                                <input type="text" name="archivo" class="form-control">
+                                                <label for="archivo">Subir Archivo</label>
+                                                 <input type="file" name="archivo" class="form-control" id="archivo">
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12">

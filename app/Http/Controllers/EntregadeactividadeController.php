@@ -50,18 +50,22 @@ class EntregadeactividadeController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'archivo' => 'required',
-            'calificacion' => 'required',
-            'user_id' => 'required',
-            'actividade_id' => 'required',
-        ]);
-    
-        Entregadeactividades::create($request->all());
-    
+       // request()->validate([
+        //    'archivo' => 'required',
+         //   'calificacion' => 'required',
+          //  'user_id' => 'required',
+          //  'actividade_id' => 'required',
+       // ]);
+       $entregar = request()->except('_token');
+       if($request->hasFile('archivo')){
+           $entregar['archivo']= time().'_'.$request->file('archivo')->getClientOriginalName();
+           $request->file('archivo')->storeAs('archivos2', $entregar['archivo'],'public');
+        
+           Entregadeactividades::create($entregar);
+        }
         return redirect()->route('actividades.index');
+    
     }
-
     /**
      * Display the specified resource.
      *
@@ -72,7 +76,6 @@ class EntregadeactividadeController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
