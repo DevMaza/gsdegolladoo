@@ -83,7 +83,8 @@ class ContenidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Contenido $contenido)
+    
+     public function show(Contenido $contenido)
     {
         
         
@@ -114,14 +115,22 @@ class ContenidoController extends Controller
      */
     public function update(Request $request, Contenido $contenido)
     {
-            request()->validate([
-                'titulo' => 'required',
-                'grupo_id' => 'required',
-                'imagen' => 'required',
-                'contenido' => 'required',
-            ]);
+            //request()->validate([
+                //'titulo' => 'required',
+               // 'grupo_id' => 'required',
+                //'imagen' => 'required',
+              //  'contenido' => 'required',
+            //]);
         
-            $contenido->update($request->all());
+            //$contenido->update($request->except('_method', '_token'));
+
+        $contenido = request()->except('_token');
+        if($request->hasFile('imagen')){
+            $contenido['imagen']=$request->file('imagen')->store('uploads','public');
+        }
+    
+            Contenido::insert($contenido);
+            //$contenido->update($request->except('_method', '_token'));
         
             return redirect()->route('contenidos.index');
     }

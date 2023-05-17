@@ -80,7 +80,7 @@ class ActividadeController extends Controller
     {
         return view('actividades.ver',compact('actividade'));
     }
-
+   
     /**
      * Show the form for editing the specified resource.
      *

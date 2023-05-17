@@ -34,8 +34,8 @@
                                             @if($user->name == \Illuminate\Support\Facades\Auth::user()->name) 
                                                  @if($entregadeactividade->actividade_id == $idact)
                                                     <td style="display: none;">{{ $entregadeactividade->id }}</td>                                
-                                                    <td>{{ $entregadeactividade->archivo }}</td>
-                                                    <td><input type="text" name="calificacion" value={{$entregadeactividade->calificacion}} ></td>
+                                                    <td><a href="{{ route('descarga.download',$entregadeactividade->uuid)}}">{{$entregadeactividade->archivo}}</a></td>
+                                                    <td><input type="text" name="calificacion" value={{$entregadeactividade->calificacion}}></td>
                                                     <td>{{ $namex }}</td>
                                                     <td>
                                                         <form action="{{ route('entregadeactividades.destroy',$entregadeactividade->actividade_id) }}" method="POST">                                        

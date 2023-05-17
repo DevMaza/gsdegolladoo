@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Actividade;
 use App\Models\Grupo;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Hamcrest\Core\HasToString;
 
 class EntregadeactividadeController extends Controller
@@ -41,7 +42,7 @@ class EntregadeactividadeController extends Controller
     {
         //
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -57,6 +58,7 @@ class EntregadeactividadeController extends Controller
           //  'actividade_id' => 'required',
        // ]);
        $entregar = request()->except('_token');
+       $entregar['uuid'] = (string) Str::uuid();
        if($request->hasFile('archivo')){
            $entregar['archivo']= time().'_'.$request->file('archivo')->getClientOriginalName();
            $request->file('archivo')->storeAs('archivos2', $entregar['archivo'],'public');
@@ -65,6 +67,15 @@ class EntregadeactividadeController extends Controller
         }
         return redirect()->route('actividades.index');
     
+    }
+
+    public function download($uuid)
+    {
+        $entregar = Entregadeactividades::where('uuid', $uuid)->firstOrFail();
+        $pathToFile = storage_path("app/public/archivos2/" . $entregar->archivo);
+        
+        return response()->download($pathToFile);
+        //return response()->file($pathToFile);
     }
     /**
      * Display the specified resource.

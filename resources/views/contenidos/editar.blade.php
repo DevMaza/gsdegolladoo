@@ -40,11 +40,17 @@
                                             <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                 <label for="grupo_id">Id grupo</label>
-                                                <input type="text" name="grupo_id" class="form-control" value={{$grupo}} disabled>
+                                                <input type="text" name="grupo_id" class="form-control" value={{$grupo}} >
                                                 </div>
                                             </div>
                                     @endif                               
                                 @endforeach
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="imagen">Subir imagen</label>
+                                    <input type="file" name="imagen" class="form-control" id="imagen">
+                                   
+                                </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
 
                                     <div class="form-floating">

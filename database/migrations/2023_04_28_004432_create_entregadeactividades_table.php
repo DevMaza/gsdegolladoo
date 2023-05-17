@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('entregadeactividades', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid');
             $table->string('archivo');
             $table->string('calificacion')->nullable();
             $table->unsignedBigInteger('user_id');

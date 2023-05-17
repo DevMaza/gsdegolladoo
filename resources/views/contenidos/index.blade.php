@@ -54,9 +54,12 @@
                                                         @endcan
                                                     </form>
                                                 </td>
+                                                
                                                 @role('administrador|Docente')
                                                 <td><img height="100px"  src="{{asset('storage'.'/'.$contenido->imagen)}}" alt="{{$contenido->title}}"class="img-fluid" width="100px"></td>	
+                                                <br>
                                                 @endrole
+                                                
                                         @endif
                                     @endif
                              @endforeach

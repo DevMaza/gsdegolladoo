@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">ver contenido</h3>
+            <h3 class="page__heading">Contenido</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -25,14 +25,14 @@
                                                     
                                 <div class="form-floating"> 
                                 
-                                <p><img  src="{{asset('storage'.'/'.$contenido->imagen)}}" alt="{{$contenido->title}}"class="img-fluid img-thumbrail" width="150px"></p>    
+                                <p><img  height="150px" src="{{asset('storage'.'/'.$contenido->imagen)}}" alt="{{$contenido->title}}"class="img-fluid img-thumbrail" width="450px"></p>    
                                 
                                 
                                 </div>
                             <br>
                    
                         </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="col-xs-14 col-sm-14 col-md-14">
                                                     
                                 <div class="form-floating"> 
                                 
