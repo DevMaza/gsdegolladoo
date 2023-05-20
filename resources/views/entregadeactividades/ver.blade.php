@@ -15,50 +15,16 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <h5><label for="titulo">Título</label></h5>
+                                    <h5><label for="archivo">Archivo</label></h5>
                                     <br>
-                                    <h6><label for="titulo">{{ $actividade->titulo }}</label></h6>
-
+                                    <h6><label for="archivo">{{ $entregadeactividade->archivo }}</label></h6>
+                                    <br>
+                                    <h6><label for="calificacion">{{ $entregadeactividade->calificacion }}</label></h6>
+                                    <br>
+                                    <h6><label for="user_id">{{ $entregadeactividade->user_id }}</label></h6>
+                                    <br>
+                                    <h6><label for="actividade_id">{{ $entregadeactividade->actividade_id }}</label></h6>
                                 </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-
-                                <div class="form-floating">
-
-                                    <p>{{ $actividade->descripcion }}</p>
-
-
-                                </div>
-                                <br>
-
-                            </div>
-                            <div>
-                                <form action="{{ route('actividades.store') }}" method="POST">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <label for="titulo">Título</label>
-                                                <input type="text" name="titulo" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <label for="grupo_id">Id Grupo</label>
-                                                {!! Form::text('grupo_id', null, array('class' => 'form-control')) !!}
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-        
-                                            <div class="form-floating">
-                                                <textarea class="form-control" name="descripcion"
-                                                    style="height: 100px"></textarea>
-                                                <label for="descripcion">Descripcion</label>
-                                            </div>
-        
-                                            <button type="submit" class="btn btn-primary">Guardar</button>
-                                        </div>
-                                </form>
                             </div>
                         </div>
                     </div>

@@ -25,7 +25,7 @@
                                                     
                                 <div class="form-floating"> 
                                 
-                                <p><img  src="{{asset('storage'.'/'.$contenido->imagen)}}" alt="{{$contenido->title}}"class="img-fluid img-thumbrail" width="150px"></p>    
+                                <p><img height="500px"  src="{{asset('storage'.'/'.$contenido->imagen)}}" alt="{{$contenido->title}}"class="img-fluid img-thumbrail" width="400px"></p>    
                                 
                                 
                                 </div>

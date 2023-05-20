@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Entregadeactividades;
+use App\Models\Entregadeactividade;
 use Illuminate\Http\Request;
 use App\Models\Actividade;
+use App\Models\Entregadeactividades;
 use App\Models\Grupo;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Hamcrest\Core\HasToString;
 
 class EntregadeactividadeController extends Controller
@@ -50,41 +52,57 @@ class EntregadeactividadeController extends Controller
      */
     public function store(Request $request)
     {
-       // request()->validate([
-        //    'archivo' => 'required',
-         //   'calificacion' => 'required',
-          //  'user_id' => 'required',
-          //  'actividade_id' => 'required',
-       // ]);
-       $entregar = request()->except('_token');
-       if($request->hasFile('archivo')){
-           $entregar['archivo']= time().'_'.$request->file('archivo')->getClientOriginalName();
-           $request->file('archivo')->storeAs('archivos2', $entregar['archivo'],'public');
+   /*     request()->validate([
+            'archivo' => 'required',
+            'calificacion' => 'required',
+            'user_id' => 'required',
+            'actividade_id' => 'required',
+        ]);
+    
+        Entregadeactividades::create($request->all());
+    */
+        $entregar = request()->except('_token');
+        $entregar['uuid'] = (string) Str::uuid();
+        if($request->hasFile('archivo')){
+            $entregar['archivo']= time().'_'.$request->file('archivo')->getClientOriginalName();
+            $request->file('archivo')->storeAs('archivos2', $entregar['archivo'],'public');
         
-           Entregadeactividades::create($entregar);
+            Entregadeactividades::create($entregar);
         }
         return redirect()->route('actividades.index');
-    
     }
+
+    public function download($uuid)
+    {
+        $entregar = Entregadeactividades::where('uuid', $uuid)->firstOrFail();
+        $pathToFile = storage_path("app/public/archivos2/" . $entregar->archivo);
+        
+        return response()->download($pathToFile);
+        //return response()->file($pathToFile);
+    }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Entregadeactividades $entregadeactividade)
     {
-        //
+        return view('entregadeactividades.ver',compact('entregadeactividade'));
     }
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Entregadeactividades $entregadeactividade)
     {
-        //
+        $grupos = Grupo::pluck('id','grado');
+        $users = User::paginate(5);
+        return view('entregadeactividades.editar',compact('entregadeactividade'),compact('grupos'),compact('users'));
     }
 
     /**
@@ -94,9 +112,13 @@ class EntregadeactividadeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, Entregadeactividades $entregadeactividade)
+    {    
+
+    
+        $entregadeactividade->update($request->input());
+    
+        return redirect()->route('entregadeactividades.index');
     }
 
     /**

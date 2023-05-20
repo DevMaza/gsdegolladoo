@@ -50,13 +50,13 @@ class ActividadeController extends Controller
      */
     public function store(Request $request)
     {
-       // request()->validate([
-        //    'titulo' => 'required',
-        //    'grupo_id' => 'required',
-        //    'descripcion' => 'required',
-       // ]);
+     /*   request()->validate([
+            'titulo' => 'required',
+            'grupo_id' => 'required',
+            'descripcion' => 'required',
+        ]);
     
-        // Actividade::create($request->all());
+        Actividade::create($request->all());*/
         $actividades = request()->except('_token');
         if($request->hasFile('archivo')){
             $actividades['archivo']= time().'_'.$request->file('archivo')->getClientOriginalName();

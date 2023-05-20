@@ -11,8 +11,8 @@
                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <img alt="image" src="{{ asset('img/logo.png') }}"
                      class="rounded-circle mr-1 thumbnail-rounded user-thumbnail ">
-                <div class="d-sm-none d-lg-inline-block">
-                    -> {{\Illuminate\Support\Facades\Auth::user()->first_name}}</div>
+                     <div class="d-sm-none d-lg-inline-block">
+                        {{\Illuminate\Support\Facades\Auth::user()->name}}</div>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right">
