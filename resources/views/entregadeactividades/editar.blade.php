@@ -22,8 +22,8 @@
                             </button>
                             </div>
                         @endif
-
-
+                        
+                       
                     <form action="{{ route('entregadeactividades.update',$entregadeactividade->id) }}" method="POST">
                         @csrf
                         @method('PUT')
@@ -40,6 +40,7 @@
                                     {!! Form::text('calificacion', $entregadeactividade->calificacion, null, array('class' => 'form-control')) !!}
                                 </div>
                             </div>
+                            
                             <br>
                             <button type="submit" class="btn btn-primary">Guardar</button>                            
                         </div>

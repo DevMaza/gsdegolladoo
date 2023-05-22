@@ -33,8 +33,10 @@
                                                         <td>{{$entregadeactividade->calificacion}} </td>
                                                         <td>{{ $namex=$user->name}}</td>
                                                         <td>
+                                                            
                                                             <form action="{{ route('entregadeactividades.destroy',$idact) }}" method="POST">                                        
-                                                                @can('editar-actividade')      
+                                                                @can('editar-actividade')   
+                                                                  
                                                                 <a class="btn btn-info" href="{{ route('entregadeactividades.edit',$entregadeactividade->id) }}">calificar</a>
                                                                 @endcan
 

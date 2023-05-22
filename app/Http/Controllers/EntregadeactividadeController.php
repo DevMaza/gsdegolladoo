@@ -98,11 +98,11 @@ class EntregadeactividadeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Entregadeactividades $entregadeactividade)
-    {
+    public function edit(Request $request,Entregadeactividades $entregadeactividade)
+    { 
         $grupos = Grupo::pluck('id','grado');
         $users = User::paginate();
-        return view('entregadeactividades.editar',compact('entregadeactividade'),compact('grupos'),compact('users'));
+        return view('entregadeactividades.editar',compact('entregadeactividade'),compact('grupos'),compact('users'),$entregadeactividade->actividade_id);
     }
 
     /**
@@ -113,12 +113,10 @@ class EntregadeactividadeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Entregadeactividades $entregadeactividade)
-    {    
-
-    
+    { 
         $entregadeactividade->update($request->input());
     
-        return redirect()->route('entregadeactividades.index');
+        return redirect()->route('entregadeactividades.index',$entregadeactividade->actividade_id);
     }
 
     /**
@@ -127,8 +125,10 @@ class EntregadeactividadeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Entregadeactividades $entregadeactividade)
     {
-        //
+        $entregadeactividade->delete();
+    
+        return redirect()->route('entregadeactividades.index',$entregadeactividade->actividade_id);
     }
 }
