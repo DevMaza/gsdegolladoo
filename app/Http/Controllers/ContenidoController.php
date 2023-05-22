@@ -28,8 +28,8 @@ class ContenidoController extends Controller
     {
           
          //Con paginación
-         $contenidos = Contenido::paginate(5);
-         $users = User::paginate(5);
+         $contenidos = Contenido::paginate();
+         $users = User::paginate();
          return view('contenidos.index',compact('contenidos'),compact('users'));
          //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
@@ -43,7 +43,7 @@ class ContenidoController extends Controller
     {   
         //$grupo= Grupo::paginate(5);
         $grupos = Grupo::pluck('id','grado');
-        $users = User::paginate(5);
+        $users = User::paginate();
         return view('contenidos.crear',compact('grupos'),compact('users'));
     }
 
@@ -100,7 +100,7 @@ class ContenidoController extends Controller
     public function edit(Contenido $contenido)
     {
         $grupos = Grupo::pluck('id','grado');
-        $users = User::paginate(5);
+        $users = User::paginate();
 
         return view('contenidos.editar',compact('contenido'),compact('grupos'),compact('users'));
     }

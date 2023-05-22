@@ -24,7 +24,7 @@ class GrupoController extends Controller
      */
     public function index()
     {
-        $grupos = Grupo::paginate(5);
+        $grupos = Grupo::paginate();
         return view('grupos.index', compact('grupos'));
     }
 

@@ -15,7 +15,9 @@
                         @can('crear-actividade')
                         <a class="btn btn-warning" href="{{ route('actividades.create') }}">Nuevo</a>
                         @endcan
-            
+                            {{-- comment  @foreach ($users as $user)
+                                 {{$user->name}}
+                            @endforeach --}}
                         <table class="table table-striped mt-2">
                                 <thead style="background-color:#6777ef">                                     
                                     <th style="display: none;">ID</th>

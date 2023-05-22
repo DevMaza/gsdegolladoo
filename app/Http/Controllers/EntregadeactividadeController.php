@@ -27,8 +27,8 @@ class EntregadeactividadeController extends Controller
         foreach ($idacta as $numero) {
             $idact += $numero;
         }
-        $entregadeactividades = Entregadeactividades::paginate(5);
-        $users = User::paginate(5);
+        $entregadeactividades = Entregadeactividades::paginate();
+        $users = User::paginate();
         return view('entregadeactividades.index',compact('entregadeactividades'),compact('users'))->with('idact',$idact);
   
         //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    

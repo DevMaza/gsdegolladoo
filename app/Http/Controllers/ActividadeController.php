@@ -24,8 +24,8 @@ class ActividadeController extends Controller
     public function index()
     {
         //Con paginación
-         $actividades = Actividade::paginate(5);
-         $users = User::paginate(5);
+         $actividades = Actividade::paginate();
+         $users = User::paginate();
          return view('actividades.index',compact('actividades'),compact('users'));
          //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
@@ -38,7 +38,7 @@ class ActividadeController extends Controller
     public function create()
     {
         $grupos = Grupo::pluck('id','grado');
-        $users = User::paginate(5);
+        $users = User::paginate();
         return view('actividades.crear',compact('grupos'),compact('users'));
     }
 
@@ -90,7 +90,7 @@ class ActividadeController extends Controller
     public function edit(Actividade $actividade)
     {
         $grupos = Grupo::pluck('id','grado');
-        $users = User::paginate(5);
+        $users = User::paginate();
         return view('actividades.editar',compact('actividade'),compact('grupos'),compact('users'));
     }
 
