@@ -19,11 +19,14 @@
                                     <br>
                                     <h6><label for="archivo">{{ $entregadeactividade->archivo }}</label></h6>
                                     <br>
+                                    <h5><label for="archivo">Calificacion</label></h5>
+                                    <br>
                                     <h6><label for="calificacion">{{ $entregadeactividade->calificacion }}</label></h6>
                                     <br>
+                                    {{-- comment 
                                     <h6><label for="user_id">{{ $entregadeactividade->user_id }}</label></h6>
                                     <br>
-                                    <h6><label for="actividade_id">{{ $entregadeactividade->actividade_id }}</label></h6>
+                                    <h6><label for="actividade_id">{{ $entregadeactividade->actividade_id }}</label></h6>--}}
                                 </div>
                             </div>
                         </div>

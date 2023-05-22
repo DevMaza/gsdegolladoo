@@ -38,9 +38,10 @@
                             @if($grupo == \Illuminate\Support\Facades\Auth::user()->grupo_id)
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="grupo_id">Id grupo</label>
-                                    <input type="text" name="grupo_id" class="form-control" value={{$grupo}}
-                                        >
+                                    {{-- comment <label for="grupo_id">Id grupo</label>--}}
+                                    <input type="hidden" name="grupo_id" value="{{$grupo}}" class="form-control" >
+                                    {{-- comment 
+                                    <input type="text" name="grupo_id" class="form-control" value={{$grupo}}>--}}
                                 </div>
                             </div>
                             @endif

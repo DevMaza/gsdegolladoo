@@ -27,14 +27,15 @@
                                         @method('PUT')
                                         @foreach ($users as $user)
                                                 @if($user->id == $entregadeactividade->user_id )
-                                                    {{$namex=$user->name}}
+                                                <input type="hidden" name="namex" value="{{$namex=$user->name}}" class="form-control" >
+                                                    
                                                 @endif                                       
                                                 @if($user->name == \Illuminate\Support\Facades\Auth::user()->name) 
                                                     @if($entregadeactividade->actividade_id == $idact)
                                                         <td style="display: none;">{{ $entregadeactividade->id }}</td>  
                                                         <td><a href="{{ route('descarga.download',$entregadeactividade->uuid)}}">{{$entregadeactividade->archivo}}</a></td>                              
                                                         <td>{{$entregadeactividade->calificacion}} </td>
-                                                        <td>{{ $namex }}</td>
+                                                        <td>{{ $namex}}</td>
                                                         <td>
                                                             <form action="{{ route('entregadeactividades.destroy',$idact) }}" method="POST">                                        
                                                                 @can('editar-actividade')      
