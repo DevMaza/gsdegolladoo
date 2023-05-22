@@ -101,7 +101,7 @@ class EntregadeactividadeController extends Controller
     public function edit(Entregadeactividades $entregadeactividade)
     {
         $grupos = Grupo::pluck('id','grado');
-        $users = User::paginate(5);
+        $users = User::paginate();
         return view('entregadeactividades.editar',compact('entregadeactividade'),compact('grupos'),compact('users'));
     }
 
