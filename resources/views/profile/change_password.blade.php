@@ -8,7 +8,7 @@
             </div>
             <form method="POST" id='changePasswordForm'>
                 <div class="alert alert-info">
-                    Note: This is just UI. you need to develop Backend for update
+                    {{-- falta backed --}}
                 </div>
                 <div class="modal-body">
                     @if ($errors->any())

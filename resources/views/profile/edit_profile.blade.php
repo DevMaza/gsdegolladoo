@@ -8,7 +8,7 @@
             </div>
             <form method="POST" id="editProfileForm" enctype="multipart/form-data">
                 <div class="alert alert-info">
-                    Note: This is just UI. you need to develop Backend for update
+                    {{-- falta backend --}}
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-danger d-none" id="editProfileValidationErrorsBox"></div>
