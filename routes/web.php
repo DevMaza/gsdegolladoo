@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('contenidos', ContenidoController::class);
     Route::resource('grupos', GrupoController::class);
     Route::resource('actividades', ActividadeController::class);
+    Route::get('actividade/{uuid}/download', [ActividadeController::class, 'download'])->name('actividade.download');
     Route::get('descarga/{uuid}/download', [EntregadeactividadeController::class, 'download'])->name('descarga.download');
     Route::resource('entregadeactividades',EntregadeactividadeController::class);
 });

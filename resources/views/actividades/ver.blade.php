@@ -19,16 +19,17 @@
                                     <br>
                                     <h6><label for="titulo">{{ $actividade->titulo }}</label></h6>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
-                                                    
+                                  {{-- comment                
                                         <div class="form-floating"> 
                                                         
                                             <p></p>    <img height="500px"  src="{{asset('storage/archivos/'.$actividade->archivo)}}" alt="{{$actividade->title}}"class="img-fluid" width="400px">
                                                         
                                                 </div>
                                              <br>
-                                    
-                                </div>
+                                       
+                                </div>--}}
                             </div>
+                            
                             <div class="col-xs-12 col-sm-12 col-md-12">
 
                                 <div class="form-floating">
@@ -43,6 +44,22 @@
                             
                             <div>
                                 <hr>
+                                {{-- agrege lo de elias --}}
+                                <table class="table table-bordered">
+                                    <thead style="background-color:#28a745">                                     
+                                        <th style="display: none;">ID</th>
+                                        <th style="color:#fff;">Nombre del Archivo</th>
+                                        <th style="color:#fff;">Descargar</th>
+                                        
+                                    </thead>
+                                  <tbody>
+                                        <tr class="table-success">
+                                            <td style="display: none;">{{ $actividade->id }}</td>
+                                            <td>{{ $actividade->archivo}}</td>                                
+                                            <td><a href="{{ route('actividade.download',$actividade->uuid)}}">{{$actividade->archivo}}</a></td>
+                                        </tr>               
+                                  </tbody>
+                            </table>
                                 <form action="{{ route('entregadeactividades.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
