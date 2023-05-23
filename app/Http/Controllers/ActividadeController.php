@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Actividade;
 use App\Models\Grupo;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class ActividadeController extends Controller
 {
@@ -58,6 +59,7 @@ class ActividadeController extends Controller
     
         // Actividade::create($request->all());
         $actividades = request()->except('_token');
+        $actividades['uuid'] = (string) Str::uuid();
         if($request->hasFile('archivo')){
             $actividades['archivo']= time().'_'.$request->file('archivo')->getClientOriginalName();
             $request->file('archivo')->storeAs('archivos', $actividades['archivo'],'public');
@@ -68,6 +70,14 @@ class ActividadeController extends Controller
         Actividade::create($actividades);
     
         return redirect()->route('actividades.index');
+    }
+    public function download($uuid)
+    {
+        $actividades = Actividade::where('uuid', $uuid)->firstOrFail();
+        $pathToFile = storage_path("app/public/archivos/" . $actividades->archivo);
+        
+        return response()->download($pathToFile);
+        //return response()->file($pathToFile);
     }
 
     /**
