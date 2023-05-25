@@ -25,14 +25,20 @@ class ContenidoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-          
+         $tokenmate = $request->all();
+         $idacta= array_keys($tokenmate);
+         $tokenmat=0;
+         //Con paginación
+         foreach ($idacta as $numero) {
+            $tokenmat += $numero;
+         }
          //Con paginación
          $contenidos = Contenido::paginate();
          $users = User::paginate();
          $materias = Materia::paginate();
-         return view('contenidos.index',compact('contenidos','materias'),compact('users'));
+         return view('contenidos.index',compact('contenidos','materias'),compact('users'))->with('tokenmat',$tokenmat);
          //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
 

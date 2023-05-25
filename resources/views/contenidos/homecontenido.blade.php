@@ -16,7 +16,7 @@
                                             <div class="card bg-c-blue order-card">
                                                     <div class="card-block">
                                                     <h5>Matematicas</h5>         
-                                                    <img src="{{ asset('img/logomat.jpg') }}" alt="logomat" width="50"
+                                                    <img src="{{ asset('img/logomat.jpg') }}" alt="logomat" width="70"
                                                         class="shadow-light">                                      
                                                         @php
                                                         use App\Models\Materia;
@@ -24,21 +24,25 @@
                                                         @endphp
                                                         {{-- comment 
                                                         <h2 class="text-right"><i class="fa fa-users f-left"></i><span>{{$cant_materias}}</span></h2>--}}
-                                                        <p class="m-b-0 text-right"><a href="/contenidos" class="text-white"><h6>Ver más</h6></a></p>
-                                                    </div>                                            
+                                                        <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',1) }}" class="text-white"><h6>Ver más</h6></a></p>
+                                                    </div>    
+                                
                                                 </div>                                    
                                         </div>
+
+                                        
                                         
                                         <div class="col-md-4 col-xl-4">
                                             <div class="card bg-c-green order-card">
                                                 <div class="card-block">
-                                                <h5>Roles</h5>                                               
+                                                <h5>Español</h5> 
+                                                <img src="{{ asset('img/logoesp.png') }}" alt="logomat" width="70"
+                                                class="shadow-light">                                                 
                                                     @php
                                                     use Spatie\Permission\Models\Role;
                                                     $cant_roles = Role::count();                                                
                                                     @endphp
-                                                    <h2 class="text-right"><i class="fa fa-user-lock f-left"></i><span>{{$cant_roles}}</span></h2>
-                                                    <p class="m-b-0 text-right"><a href="/roles" class="text-white">Ver más</a></p>
+                                                        <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',2) }}" class="text-white"><h6>Ver más</h6></a></p>
                                                 </div>
                                             </div>
                                         </div>                                                                
