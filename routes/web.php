@@ -8,6 +8,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ContenidoController;
 use App\Http\Controllers\GrupoController;
 use App\Http\Controllers\ActividadeController;
+use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\EntregadeactividadeController;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -37,6 +38,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('contenidos', ContenidoController::class);
     Route::resource('grupos', GrupoController::class);
     Route::resource('actividades', ActividadeController::class);
+    Route::resource('materias', MateriaController::class);
     Route::get('actividade/{uuid}/download', [ActividadeController::class, 'download'])->name('actividade.download');
     Route::get('descarga/{uuid}/download', [EntregadeactividadeController::class, 'download'])->name('descarga.download');
     Route::resource('entregadeactividades',EntregadeactividadeController::class);

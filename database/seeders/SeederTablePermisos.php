@@ -42,6 +42,12 @@ class SeederTablePermisos extends Seeder
             'editar-contenido',
             'borrar-contenido',
 
+            //Grupos
+            'ver-materia',
+            'crear-materia',
+            'editar-materia',
+            'borrar-materia',
+
      
 
 

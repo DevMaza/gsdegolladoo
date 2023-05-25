@@ -15,6 +15,10 @@
     <a class="nav-link" href="/grupos">
         <i class="fas fa-users"></i><span>Grupos</span>
     </a>
+
+    <a class="nav-link" href="/materias">
+        <i class="fas fa-users"></i><span>Materias</span>
+    </a>
   
     @endrole
     <a class="nav-link" href="/contenidos">
