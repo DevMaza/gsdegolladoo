@@ -31,6 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/homecontenido', [App\Http\Controllers\HomecontenidoController::class, 'index'])->name('homecontenido');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('roles', RolController::class);

@@ -20,7 +20,8 @@
                                 <thead style="background-color:#6777ef">                                     
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Titulo</th>
-                                    <th style="color:#fff;">Contenido</th>                                  
+                                    <th style="color:#fff;">Contenido</th>
+                                    <th style="color:#fff;">Materia</th>                                    
                                     <th style="color:#fff;">Acciones</th>
                                     @role('administrador|Docente')
                                     <th style="color:#fff;">Imagen</th>
@@ -35,7 +36,11 @@
                                                 <td style="display: none;">{{ $contenido->id }}</td>                                
                                                 <td>{{ $contenido->titulo }}</td>
                                                 <td>{{ $contenido->contenido }}</td>
-                                                
+                                                @foreach($materias as $materia)
+                                                    @if($contenido->materia_id == $materia->id)
+                                                        <td>{{ $materia->materia }}</td>
+                                                    @endif
+                                                @endforeach
                                                 <td>
                                                     <form action="{{ route('contenidos.destroy',$contenido->id) }}" method="POST">                                        
                                                         @can('editar-contenido')

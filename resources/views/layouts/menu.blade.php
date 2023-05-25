@@ -21,7 +21,7 @@
     </a>
   
     @endrole
-    <a class="nav-link" href="/contenidos">
+    <a class="nav-link" href="/homecontenido">
         <i class=" fas fa-blog"></i><span>Contenidos</span>
     </a>
 

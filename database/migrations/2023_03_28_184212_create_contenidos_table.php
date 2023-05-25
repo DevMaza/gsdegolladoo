@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('imagen');
             $table->unsignedBigInteger('grupo_id');
             $table->foreign('grupo_id')->references('id')->on('grupos')->onDelete('cascade');
+            $table->unsignedBigInteger('materia_id');
+            $table->foreign('materia_id')->references('id')->on('materias')->onDelete('cascade');
             $table->timestamps();
         });
     }

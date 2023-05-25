@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contenido;
 use App\Models\Grupo;
+use App\Models\Materia;
 use App\Models\User;
 
 
@@ -30,7 +31,8 @@ class ContenidoController extends Controller
          //Con paginación
          $contenidos = Contenido::paginate();
          $users = User::paginate();
-         return view('contenidos.index',compact('contenidos'),compact('users'));
+         $materias = Materia::paginate();
+         return view('contenidos.index',compact('contenidos','materias'),compact('users'));
          //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
 
@@ -43,8 +45,9 @@ class ContenidoController extends Controller
     {   
         //$grupo= Grupo::paginate(5);
         $grupos = Grupo::pluck('id','grado');
+        $materias = Materia::pluck('materia','id');
         $users = User::paginate();
-        return view('contenidos.crear',compact('grupos'),compact('users'));
+        return view('contenidos.crear',compact('grupos','materias'),compact('users'));
     }
 
     /**
