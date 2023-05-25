@@ -59,43 +59,53 @@
                                             <td><a href="{{ route('actividade.download',$actividade->uuid)}}">{{$actividade->archivo}}</a></td>
                                         </tr>               
                                   </tbody>
-                            </table>
-                                <form action="{{ route('entregadeactividades.store') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <label for="archivo">Subir Archivo</label>
-                                                 <input type="file" name="archivo" class="form-control" id="archivo">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                        @role('Docente')
-                                            <div class="form-group">
-                                                <label for="calificacion">calificacion</label>
-                                                <input type="text" name="calificacion" class="form-control" value="0">
-                                            </div>
-                                        </div>
-                                        @endrole
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                {{-- <label for="user_id">Id user</label> --}}
+                                </table>
+                            @foreach($entregadeactividades as $entrega) 
+                                                                                                               
+                                        @if ($entrega->actividade_id == $actividade->id && $entrega->user_id == \Illuminate\Support\Facades\Auth::user()->id)
+                                            <h1>actividad entregada</h1>
+                                            {{$tokentec++;}}
+                                        @endif 
+                                        @if ($entrega->user_id != \Illuminate\Support\Facades\Auth::user()->id && $tokentec==0 )
+                                            {{$tokentec++;}}
+                                        <form action="{{ route('entregadeactividades.store') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="ro>0
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="archivo">Subir Archivo</label>
+                                                         <input type="file" name="archivo" class="form-control" id="archivo">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                                @role('Docente')
+                                                    <div class="form-group">
+                                                        <label for="calificacion">calificacion</label>
+                                                        <input type="text" name="calificacion" class="form-control" value="0">
+                                                    </div>
+                                                </div>
+                                                @endrole
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <div class="form-group">
+                                                        {{-- <label for="user_id">Id user</label> --}}
+                                                        
+                                                        <input type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" class="form-control" >
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <div class="form-group">
+                                                        {{-- <label for="actividade_id">Id actividad</label> --}}
+                                                        
+                                                        <input type="hidden" name="actividade_id" value="{{$actividade->id}}" class="form-control" >
+                                                    </div>
+                                                </div>
                                                 
-                                                <input type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" class="form-control" >
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                {{-- <label for="actividade_id">Id actividad</label> --}}
-                                                
-                                                <input type="hidden" name="actividade_id" value="{{$actividade->id}}" class="form-control" >
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <button type="submit" class="btn btn-primary">Entregar</button>
-                                        </div>
-                                </form>
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <button type="submit" class="btn btn-primary">Entregar</button>
+                                                </div>
+                                        </form>
+                                        @endif                                               
+                            @endforeach                                
                             </div>
                         </div>
                     </div>

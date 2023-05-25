@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Actividade;
 use App\Models\Grupo;
 use App\Models\User;
+use App\Models\Entregadeactividades;
 use Illuminate\Support\Str;
 
 class ActividadeController extends Controller
@@ -88,7 +89,10 @@ class ActividadeController extends Controller
      */
     public function show(Actividade $actividade)
     {
-        return view('actividades.ver',compact('actividade'));
+        $users = User::paginate();
+        $tokentec=0;
+        $entregadeactividades = Entregadeactividades::paginate();
+        return view('actividades.ver',compact('entregadeactividades'),compact('actividade'))->with('tokentec',$tokentec);
     }
 
     /**
