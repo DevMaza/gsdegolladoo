@@ -145,6 +145,6 @@ class ContenidoController extends Controller
     {
         $contenido->delete();
     
-        return redirect()->route('contenidos.index');
+        return redirect()->route('homecontenido');
     }
 }

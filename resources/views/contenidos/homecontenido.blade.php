@@ -16,7 +16,7 @@
                                             <div class="card bg-c-blue order-card">
                                                     <div class="card-block">
                                                     <h5>Matematicas</h5>         
-                                                    <img src="{{ asset('img/logomat.jpg') }}" alt="logomat" width="70"
+                                                    <img src="{{ asset('img/logomat.jpg') }}" alt="logomat" width="55"
                                                         class="shadow-light">                                      
                                                         @php
                                                         use App\Models\Materia;
@@ -50,51 +50,17 @@
                                         <div class="col-md-4 col-xl-4">
                                             <div class="card bg-c-pink order-card">
                                                 <div class="card-block">
-                                                    <h5>Contenido</h5>                                               
+                                                    <h5>Residencia</h5> 
+                                                    <img src="{{ asset('img/logoisc.jpg') }}" alt="logomat" width="70"
+                                                class="shadow-light">  
+                                                                                                  
                                                     @php
                                                     use App\Models\Contenido;
                                                     $cant_contenidos = Contenido::count();                                                
                                                     @endphp
-                                                    <h2 class="text-right"><i class="fa fa-blog f-left"></i><span>{{$cant_contenidos}}</span></h2>
-                                                    <p class="m-b-0 text-right"><a href="/contendos" class="text-white">Ver más</a></p>
+                                                    <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',3) }}" class="text-white"><h6>Ver más</h6></a></p>
                                                 </div>
                                             </div>
-                                        </div>
-                                   {{-- editaarrrrr --}} 
-                                        <div class="col-md-4 col-xl-4">
-                                            
-                                            <div class="card bg-c-blue order-card">
-                                                    <div class="card-block">
-                                                    <h5>Grupos</h5>                                              
-                                                    </div>                                            
-                                            </div>                                    
-                                        </div>
-                                        
-                                        <div class="col-md-4 col-xl-4">
-                                            
-                                            <div class="card bg-c-green order-card">
-                                                    <div class="card-block">
-                                                    <h5>Actividades</h5>                                              
-                                                    </div>                                            
-                                            </div>                                    
-                                        </div>
-
-                                        <div class="col-md-4 col-xl-4">
-                                            
-                                            <div class="card bg-c-pink order-card">
-                                                    <div class="card-block">
-                                                    <h5>Calificaciones</h5>                                              
-                                                    </div>                                            
-                                            </div>                                    
-                                        </div>
-
-                                        <div class="col-md-4 col-xl-4">
-                                            
-                                            <div class="card bg-c-blue order-card">
-                                                    <div class="card-block">
-                                                    <h5>Examenes</h5>                                              
-                                                    </div>                                            
-                                            </div>                                    
                                         </div>
                                 </div>                        
                         </div>

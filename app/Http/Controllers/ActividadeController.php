@@ -148,6 +148,6 @@ class ActividadeController extends Controller
     {
         $actividade->delete();
     
-        return redirect()->route('actividades.index');
+        return redirect()->route('homeactividade');
     }
 }

@@ -69,7 +69,7 @@ class EntregadeactividadeController extends Controller
         
             Entregadeactividades::create($entregar);
         }
-        return redirect()->route('actividades.index');
+        return redirect()->route('homeactividade');
     }
 
     public function download($uuid)

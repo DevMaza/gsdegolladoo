@@ -60,14 +60,14 @@
                                         </tr>               
                                   </tbody>
                                 </table>
-                            @foreach($entregadeactividades as $entrega) 
+                          {{-- comment   @foreach($entregadeactividades as $entrega) 
                                                                                                                
                                         @if ($entrega->actividade_id == $actividade->id && $entrega->user_id == \Illuminate\Support\Facades\Auth::user()->id)
                                             <h1>actividad entregada</h1>
                                             {{$tokentec++;}}
                                         @endif 
                                         @if ($entrega->user_id != \Illuminate\Support\Facades\Auth::user()->id && $tokentec==0 )
-                                            {{$tokentec++;}}
+                                            {{$tokentec++;}} --}}
                                         <form action="{{ route('entregadeactividades.store') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="ro>0
@@ -104,8 +104,8 @@
                                                     <button type="submit" class="btn btn-primary">Entregar</button>
                                                 </div>
                                         </form>
-                                        @endif                                               
-                            @endforeach                                
+                                 {{-- comment       @endif                                               
+                            @endforeach  --}}                               
                             </div>
                         </div>
                     </div>
