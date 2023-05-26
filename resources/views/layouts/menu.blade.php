@@ -26,7 +26,7 @@
     </a>
 
     
-    <a class="nav-link" href="/actividades">
+    <a class="nav-link" href="/homeactividade">
         <i class=" fas fa-blog"></i><span>Actividades</span>
     </a>
 

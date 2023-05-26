@@ -83,7 +83,7 @@ class ContenidoController extends Controller
         Contenido::insert($contenido);
        
 
-       return redirect()->route('contenidos.index');
+       return redirect()->route('homecontenido');
     }
 
     /**

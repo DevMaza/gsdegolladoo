@@ -27,7 +27,8 @@
                               </thead>
                               <tbody>
                             @foreach ($actividades as $actividade)
-                            <tr>
+                                @if($actividade->materia_id  == $tokenmat)
+                                <tr>
                                     @foreach ($users as $user)
                                         @if($user->name == \Illuminate\Support\Facades\Auth::user()->name)
                                                 @if($actividade->grupo_id  == $user->grupo_id)           
@@ -59,6 +60,7 @@
                                         @endif
                                      @endforeach
                             </tr>
+                            @endif
                             @endforeach
                             </tbody>
                         </table>

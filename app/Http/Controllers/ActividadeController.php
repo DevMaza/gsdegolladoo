@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Actividade;
 use App\Models\Grupo;
 use App\Models\User;
+use App\Models\Materia;
 use App\Models\Entregadeactividades;
 use Illuminate\Support\Str;
 
@@ -23,12 +24,20 @@ class ActividadeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $tokenmate = $request->all();
+        $idacta= array_keys($tokenmate);
+        $tokenmat=0;
+        //Con paginación
+        foreach ($idacta as $numero) {
+           $tokenmat += $numero;
+        }
         //Con paginación
          $actividades = Actividade::paginate();
          $users = User::paginate();
-         return view('actividades.index',compact('actividades'),compact('users'));
+         $materias = Materia::paginate();
+         return view('actividades.index',compact('actividades' ,'materias'),compact('users'))->with('tokenmat',$tokenmat);;
          //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
 
@@ -41,7 +50,8 @@ class ActividadeController extends Controller
     {
         $grupos = Grupo::pluck('id','grado');
         $users = User::paginate();
-        return view('actividades.crear',compact('grupos'),compact('users'));
+        $materias = Materia::pluck('materia','id');
+        return view('actividades.crear',compact('grupos','materias'),compact('users'));
     }
 
     /**
@@ -70,7 +80,7 @@ class ActividadeController extends Controller
        
         Actividade::create($actividades);
     
-        return redirect()->route('actividades.index');
+        return redirect()->route('homeactividade');
     }
     public function download($uuid)
     {

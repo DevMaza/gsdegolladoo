@@ -41,6 +41,14 @@
                                 </div>
                                 @endif
                                 @endforeach
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <label for="materia_id">Materia</label>
+                                        {!! Form::select('materia_id',$materias, null, array('class' => 'form-control')) !!}
+                                    </div>
+                                </div>
+
                                <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <label for="archivo">Subir Archivo</label>
@@ -58,7 +66,7 @@
                                     <button type="submit" class="btn btn-primary">Guardar</button>
                                 </div>
                         </form>
-
+                    {!! Form::close() !!}
                     </div>
                 </div>
             </div>
