@@ -59,6 +59,45 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="col-md-4 col-xl-4">
+                                            
+                                            <div class="card bg-c-blue order-card">
+                                                    <div class="card-block">
+                                                        <h5>Formacion civica y etica</h5>         
+                                                        <img src="{{ asset('img/civica.jpg') }}" alt="logomat" width="55"
+                                                            class="shadow-light">                                      
+                                                            {{-- comment 
+                                                            <h2 class="text-right"><i class="fa fa-users f-left"></i><span>{{$cant_materias}}</span></h2>--}}
+                                                            <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',1) }}" class="text-white"><h6>Ver más</h6></a></p>
+                                                    </div> 
+                                            </div>                                    
+                                        </div>
+                                        
+
+                                        <div class="col-md-4 col-xl-4">
+                                            <div class="card bg-c-green order-card">
+                                                <div class="card-block">
+                                                <h5>Ciencias Naturales</h5> 
+                                                <img src="{{ asset('img/ciencia.jpg') }}" alt="logomat" width="70"
+                                                class="shadow-light">                                                 
+                                                        <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',2) }}" class="text-white"><h6>Ver más</h6></a></p>
+                                                </div>
+                                            </div>
+                                        </div>  
+
+                                        <div class="col-md-4 col-xl-4">
+                                            <div class="card bg-c-pink order-card">
+                                                <div class="card-block">
+                                                    <h5>Historia</h5> 
+                                                    <img src="{{ asset('img/Historia.jpg') }}" alt="logomat" width="50"
+                                                class="shadow-light">  
+                                                                                                  
+
+                                                    <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',3) }}" class="text-white"><h6>Ver más</h6></a></p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     
                                 </div>                        
                         </div>
