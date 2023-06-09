@@ -25,7 +25,6 @@
     <a class="nav-link" href="/homecontenido">
         <i class=" fas fa-blog"></i><span>Contenidos</span>
     </a>
-
     
     <a class="nav-link" href="/homeactividade">
         <i class=" fas fa-blog"></i><span>Actividades</span>

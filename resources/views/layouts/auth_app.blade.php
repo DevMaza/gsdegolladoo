@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
     <link href="{{ asset('assets/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
+    <style>
+        .heading { color: #000080; }
+      </style>
 </head>
 
 <body>
@@ -24,8 +27,9 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="login-brand">
-                        <img src="{{ asset('img/logo.png') }}" alt="logo" width="100"
-                             class="shadow-light">
+                        <div > <h4 class="heading">Primaria General Santos Degollado</h4><img src="{{ asset('img/logo.png') }}" alt="logo" width="100"
+                            class="shadow-light"></div>
+                        
                     </div>
                     @yield('content')
                     <div class="simple-footer">

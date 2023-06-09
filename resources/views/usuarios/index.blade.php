@@ -24,7 +24,7 @@
                                 @foreach ($usuarios as $usuario)
                                   <tr>
                                     <td style="display: none;">{{ $usuario->id }}</td>
-                                    <td>{{ $usuario->name }}</td>
+                                    <td>{{ $usuario->name }} {{ $usuario->apellido }}</td>
                                     <td>{{ $usuario->email }}</td>
                                     <td>
                                       @if(!empty($usuario->getRoleNames()))

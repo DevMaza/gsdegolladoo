@@ -50,12 +50,15 @@
                                         <div class="col-md-4 col-xl-4">
                                             <div class="card bg-c-pink order-card">
                                                 <div class="card-block">
-                                                    <h5>Residencia</h5> 
-                                                    <img src="{{ asset('img/logoisc.jpg') }}" alt="logomat" width="70"
+                                                    <h5>Geografia</h5> 
+                                                    <img src="{{ asset('img/geo.png') }}" alt="logomat" width="60"
                                                 class="shadow-light">  
                                                                                                   
-            
-                                                    <p class="m-b-0 text-right"><a href="{{ route('actividades.index',3) }}" class="text-white"><h6>Ver más</h6></a></p>
+                                                    @php
+                                                    use App\Models\Contenido;
+                                                    $cant_contenidos = Contenido::count();                                                
+                                                    @endphp
+                                                    <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',3) }}" class="text-white"><h6>Ver más</h6></a></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -69,7 +72,7 @@
                                                             class="shadow-light">                                      
                                                             {{-- comment 
                                                             <h2 class="text-right"><i class="fa fa-users f-left"></i><span>{{$cant_materias}}</span></h2>--}}
-                                                            <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',1) }}" class="text-white"><h6>Ver más</h6></a></p>
+                                                            <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',4) }}" class="text-white"><h6>Ver más</h6></a></p>
                                                     </div> 
                                             </div>                                    
                                         </div>
@@ -81,7 +84,7 @@
                                                 <h5>Ciencias Naturales</h5> 
                                                 <img src="{{ asset('img/ciencia.jpg') }}" alt="logomat" width="70"
                                                 class="shadow-light">                                                 
-                                                        <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',2) }}" class="text-white"><h6>Ver más</h6></a></p>
+                                                        <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',5) }}" class="text-white"><h6>Ver más</h6></a></p>
                                                 </div>
                                             </div>
                                         </div>  
@@ -94,7 +97,7 @@
                                                 class="shadow-light">  
                                                                                                   
 
-                                                    <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',3) }}" class="text-white"><h6>Ver más</h6></a></p>
+                                                    <p class="m-b-0 text-right"><a href="{{ route('contenidos.index',6) }}" class="text-white"><h6>Ver más</h6></a></p>
                                                 </div>
                                             </div>
                                         </div>

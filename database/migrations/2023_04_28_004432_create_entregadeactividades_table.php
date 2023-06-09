@@ -18,6 +18,7 @@ return new class extends Migration
             $table->uuid('uuid');
             $table->string('archivo');
             $table->string('calificacion')->nullable();
+            $table->string('observacion')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('actividade_id');

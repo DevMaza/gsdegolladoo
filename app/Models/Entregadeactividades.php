@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Entregadeactividades extends Model
 {
     use HasFactory;
-    protected $fillable=['uuid','archivo','calificacion','user_id','actividade_id'];
+    protected $fillable=['uuid','archivo','calificacion','observacion','user_id','actividade_id'];
 }

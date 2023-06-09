@@ -31,7 +31,7 @@
                                                         <td style="display: none;">{{ $entregadeactividade->id }}</td>  
                                                         <td><a href="{{ route('descarga.download',$entregadeactividade->uuid)}}">{{$entregadeactividade->archivo}}</a></td>                              
                                                         <td>{{$entregadeactividade->calificacion}} </td>
-                                                        <td>{{ $namex=$user->name}}</td>
+                                                        <td>{{ $namex=$user->name}} {{ $namex=$user->apellido}}</td>
                                                         <td>
                                                             
                                                             <form action="{{ route('entregadeactividades.destroy',$idact) }}" method="POST">                                        
