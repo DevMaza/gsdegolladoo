@@ -10,8 +10,6 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                
-            
                         @can('crear-grupo')
                         <a class="btn btn-warning" href="{{ route('materias.create') }}">Nuevo</a>
                         @endcan

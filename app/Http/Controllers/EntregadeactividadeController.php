@@ -23,7 +23,6 @@ class EntregadeactividadeController extends Controller
         $name = $request->all();
         $idacta= array_keys($name);
         $idact=0;
-        //Con paginación
         foreach ($idacta as $numero) {
             $idact += $numero;
         }

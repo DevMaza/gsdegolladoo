@@ -6,25 +6,37 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
-class Actividade extends Model
+class Examen extends Model
 {
     use HasFactory;
-    protected $fillable=['titulo','descripcion','grupo_id','uuid','materia_id','archivo'];
+
+    protected $guarded = ['id'];
+    protected $table = 'examenes';
 
     public function grupo()
     {
         return $this->belongsTo(Grupo::class);
     }
 
-    public function entregas()
+    public function materia()
     {
-        return $this->hasMany(Entregadeactividades::class, 'actividade_id');
+        return $this->belongsTo(Materia::class);
+    }
+
+    public function preguntas()
+    {
+        return $this->hasMany(Pregunta::class);
+    }
+
+    public function calificaciones()
+    {
+        return $this->hasMany(Calificacion::class);
     }
 
     protected function miCalificacion(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->entregas->filter(fn($entrega) => $entrega->user_id == auth()->user()->id)->first()??null,
+            get: fn () => $this->calificaciones->filter(fn($calificacion) => $calificacion->user_id == auth()->user()->id)->first()??null,
         );
     }
 
@@ -38,7 +50,7 @@ class Actividade extends Model
     protected function calificacion(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->mi_calificacion->calificacion??'NO REALIZADO',
+            get: fn () => $this->mi_calificacion->obtenido??'NO REALIZADO',
         );
     }
 

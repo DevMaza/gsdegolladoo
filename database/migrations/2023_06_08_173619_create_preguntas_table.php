@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('preguntas', function (Blueprint $table) {
             $table->id();
-            $table->string('pregunta');
-            $table->string('incisoa');
-            $table->string('incisob');
-            $table->string('incisoc');
-            $table->string('respuesta');
-            $table->unsignedBigInteger('examene_id');
-            $table->foreign('examene_id')->references('id')->on('examenes')->onDelete('cascade');
+            $table->unsignedBigInteger('examen_id');
+            $table->foreign('examen_id')->references('id')->on('examenes')->onDelete('cascade');
+            $table->string('pregunta', 45);
+            $table->string('opcion_a', 45);
+            $table->string('opcion_b', 45);
+            $table->string('opcion_c', 45);
+            $table->enum('correcta', ['a', 'b', 'c']);
             $table->timestamps();
         });
     }

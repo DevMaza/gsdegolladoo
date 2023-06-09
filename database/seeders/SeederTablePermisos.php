@@ -48,13 +48,28 @@ class SeederTablePermisos extends Seeder
             'editar-materia',
             'borrar-materia',
 
-     
+            // Examenes
+            'ver-examen',
+            'crear-examen',
+            'editar-examen',
+            'borrar-examen',
 
+            // Preguntas de Examenes
+            'ver-pregunta',
+            'crear-pregunta',
+            'editar-pregunta',
+            'borrar-pregunta',
 
+            // Realizar Examenes
+            'realizar-examen',
+
+            // Calificaciones
+            'ver-calificaciones-mias',
+            'ver-calificaciones-grupo',
         ];
 
         foreach($permisos as $permiso) {
-            Permission::create(['name'=>$permiso]);
+            Permission::firstOrCreate(['name'=>$permiso]);
         }
     }
 }
