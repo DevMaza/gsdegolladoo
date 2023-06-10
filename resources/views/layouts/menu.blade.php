@@ -1,9 +1,10 @@
+@role('Administrador')
 <li class="side-menus @if(Route::is('home')) active @endif">
     <a class="nav-link" href="{{route('home')}}">
         <i class=" fas fa-building"></i><span>Panel</span>
     </a>
 </li>
-@role('Administrador')
+
 <li class="side-menus @if(Route::is('usuarios.index') || Route::is('usuarios.create') || Route::is('usuarios.edit') || Route::is('usuarios.show')) active @endif">
     <a class="nav-link" href="{{route('usuarios.index')}}">
         <i class=" fas fa-users"></i><span>Usuarios</span>
