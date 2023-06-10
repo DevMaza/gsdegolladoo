@@ -38,6 +38,13 @@ class EntregadeactividadeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function index2()
+    {
+        $entregadeactividades = Entregadeactividades::paginate();
+        $users = User::paginate();
+        return view('entregadeactividades.index2', compact('entregadeactividades'),compact('users'));
+    }
     public function create()
     {
         //

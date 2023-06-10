@@ -35,11 +35,13 @@
         <i class=" fas fa-blog"></i><span>Actividades</span>
     </a>
 </li>
-<li class="side-menus @if(Route::is('entregadeactividades.index') || Route::is('entregadeactividades.create') || Route::is('entregadeactividades.edit') || Route::is('entregadeactividades.show')) active @endif">
-    <a class="nav-link" href="{{route('entregadeactividades.index')}}">
-        <i class=" fas fa-blog"></i><span>Calificaciones</span>
+@role('Alumno')
+<li class="side-menus @if(Route::is('homeindex')) active @endif">
+    <a class="nav-link" href="{{route('homeindex')}}">
+        <i class=" fas fa-blog"></i><span>Calificacion actividad</span>
     </a>
 </li>
+@endrole
 @canany(['ver-examen', 'crear-examen', 'editar-examen', 'borrar-examen', 'ver-pregunta', 'crear-pregunta', 'editar-pregunta', 'borrar-pregunta'])
 <li class="side-menus @if(Route::is('examenes.index') || Route::is('examenes.create') || Route::is('examenes.edit') || Route::is('examenes.show') || Route::is('preguntas.show') || Route::is('preguntas.index') || Route::is('preguntas.create') || Route::is('preguntas.edit')) active @endif">
     <a class="nav-link" href="{{route('examenes.index')}}">

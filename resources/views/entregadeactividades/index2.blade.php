@@ -14,44 +14,25 @@
                         <table class="table table-striped mt-2">
                                 <thead style="background-color:#6777ef">                                     
                                     <th style="display: none;">ID</th>
-                                    <th style="color:#fff;">archivo</th>
+                                    <th style="color:#fff;">archivoooo</th>
                                     <th style="color:#fff;">calificacion</th>
                                     <th style="color:#fff;">Nombre</th>
-                                    <th style="color:#fff;">observaciones</th>                                   
-                                    <th style="color:#fff;">Acciones</th>                                                                   
+                                    <th style="color:#fff;">observaciones</th>                                                                                                 
                               </thead>
+                              
                               <tbody>
                                 @foreach ($entregadeactividades as $entregadeactividade)
                                 <tr>
-                                    <form action="{{ route('entregadeactividades.update',$entregadeactividade->id) }}" method="POST">
+                                
                                         @csrf
                                         @method('PUT')
-                                        @foreach ($users as $user)
-                                                @if($user->id == $entregadeactividade->user_id) 
-                                                    @if($entregadeactividade->actividade_id == $idact)
+                                       
+                                                @if($entregadeactividade->user_id == \Illuminate\Support\Facades\Auth::user()->id) 
                                                         <td style="display: none;">{{ $entregadeactividade->id }}</td>  
                                                         <td><a href="{{ route('descarga.download',$entregadeactividade->uuid)}}">{{$entregadeactividade->archivo}}</a></td>                              
                                                         <td>{{$entregadeactividade->calificacion}} </td>
-                                                        <td>{{ $namex=$user->name}} {{ $namex=$user->apellido}}</td>
+                                                        <td>{{ $namex=\Illuminate\Support\Facades\Auth::user()->name}} {{ $namex=\Illuminate\Support\Facades\Auth::user()->apellido}}</td>
                                                         <td>{{$entregadeactividade->observacion}} </td>
-                                                        <td>
-                                                            
-                                                            <form action="{{ route('entregadeactividades.destroy',$idact) }}" method="POST">                                        
-                                                                @can('editar-actividade')   
-                                                                  
-                                                                <a class="btn btn-info" href="{{ route('entregadeactividades.edit',$entregadeactividade->id) }}">calificar</a>
-                                                                @endcan
-
-                                                                @can('ver-actividade')
-                                                                <a class="btn btn-success" href="{{ route('entregadeactividades.show',$entregadeactividade->id) }}">ver</a>
-                                                                @endcan
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                
-                                                                <button type="submit" class="btn btn-danger">eliminar</button>
-                                                                
-                                                            </form>
-                                                        </td>
 
                                                     {{-- comment 
                                                             <td style="display: none;">{{ $entregadeactividade->id }}</td>                                
@@ -61,12 +42,12 @@
                                                                 <td>                                                            
                                                                 <button type="submit" class="btn btn-primary">añadir</button>                                                       
                                                                 </td>--}}
-                                                    @endif                                                
+                                                                                              
                                                 @endif                
-                                        @endforeach                                    
+                                                                       
                                 </tr>
                                 @endforeach 
-                            </form>                   
+                  
                                 </tbody>
                         </table>
                         <!-- Ubicamos la paginacion a la derecha -->

@@ -33,6 +33,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/homecontenido', [App\Http\Controllers\HomecontenidoController::class, 'index'])->name('homecontenido');
 Route::get('/homeactividade', [App\Http\Controllers\HomeactividadeController::class, 'index'])->name('homeactividade');
+Route::get('/index2', [App\Http\Controllers\EntregadeactividadeController::class, 'index2'])->name('homeindex');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('roles', RolController::class);
